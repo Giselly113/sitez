@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Categorias - PromoFlash </title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Inter,sans-serif;
+background:#f5f5f5;
+color:#111;
+}
+
+header{
+background:#fff;
+border-bottom:1px solid #eee;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.header{
+max-width:1200px;
+height:72px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:25px;
+padding:0 20px;
+}
+
+.logo{
+font-size:23px;
+font-weight:900;
+color:#e60000;
+white-space:nowrap;
+}
+
+.logo span{
+color:#111;
+}
+
+.search{
+flex:1;
+}
+
+.search input{
+width:100%;
+height:44px;
+border:1px solid #ddd;
+border-radius:25px;
+padding:0 18px;
+outline:none;
+}
+
+nav{
+display:flex;
+gap:20px;
+}
+
+nav a{
+text-decoration:none;
+color:#222;
+font-size:14px;
+font-weight:700;
+}
+
+nav a:hover{
+color:#e60000;
+}
+
+.hero{
+background:linear-gradient(135deg,#111,#320000);
+color:#fff;
+padding:50px 20px;
+}
+
+.hero-content{
+max-width:1200px;
+margin:auto;
+}
+
+.hero h1{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#ccc;
+}
+
+.container{
+max-width:1200px;
+margin:35px auto;
+padding:0 20px;
+}
+
+.categories-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.category-card{
+background:#fff;
+border-radius:16px;
+padding:28px 20px;
+text-decoration:none;
+color:#111;
+box-shadow:0 4px 15px rgba(0,0,0,.06);
+transition:.2s;
+cursor:pointer;
+text-align:center;
+border:2px solid transparent;
+}
+
+.category-card:hover,
+.category-card.active{
+border-color:#e60000;
+transform:translateY(-4px);
+}
+
+.category-icon{
+width:65px;
+height:65px;
+margin:0 auto 14px;
+border-radius:50%;
+background:#fff0f0;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:27px;
+color:#e60000;
+}
+
+.category-card h3{
+font-size:16px;
+}
+
+.category-card p{
+font-size:12px;
+color:#999;
+margin-top:5px;
+}
+
+.products-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:45px 0 20px;
+}
+
+.products-title h2{
+font-size:25px;
+}
+
+.products-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.product-card{
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
+
+.product-image{
+height:240px;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:15px;
+}
+
+.product-image > img:last-child{
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+.store-logo-card{
+position:absolute;
+top:12px;
+left:12px;
+width:43px;
+height:43px;
+object-fit:contain;
+background:#fff;
+border:2px solid #fff;
+border-radius:50%;
+padding:5px;
+box-shadow:0 4px 14px rgba(0,0,0,.16);
+z-index:4;
+}
+
+.favorite{
+position:absolute;
+top:12px;
+right:12px;
+width:38px;
+height:38px;
+border:0;
+border-radius:50%;
+background:#fff;
+color:#e60000;
+box-shadow:0 3px 10px rgba(0,0,0,.12);
+cursor:pointer;
+z-index:5;
+}
+
+.product-info{
+padding:17px;
+}
+
+.posted-time{
+font-size:11px;
+color:#999;
+margin-bottom:8px;
+}
+
+.product-name{
+font-size:14px;
+font-weight:700;
+line-height:1.4;
+min-height:40px;
+}
+
+.old-price{
+font-size:12px;
+color:#999;
+text-decoration:line-through;
+margin-top:12px;
+}
+
+.price{
+font-size:23px;
+font-weight:900;
+margin-top:2px;
+}
+
+.offer-btn{
+display:block;
+background:#e60000;
+color:#fff;
+text-decoration:none;
+text-align:center;
+padding:12px;
+margin-top:13px;
+border-radius:9px;
+font-size:13px;
+font-weight:900;
+}
+
+.empty{
+background:#fff;
+padding:60px 20px;
+text-align:center;
+border-radius:16px;
+color:#777;
+grid-column:1/-1;
+}
+
+.empty i{
+font-size:50px;
+color:#ddd;
+margin-bottom:15px;
+}
+
+footer{
+margin-top:60px;
+background:#111;
+color:#fff;
+padding:35px;
+text-align:center;
+}
+
+@media(max-width:900px){
+
+.categories-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.products-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+nav{
+display:none;
+}
+
+}
+
+@media(max-width:600px){
+
+.header{
+height:64px;
+}
+
+.search{
+display:none;
+}
+
+.logo{
+font-size:20px;
+}
+
+.hero h1{
+font-size:29px;
+}
+
+.categories-grid{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.category-card{
+padding:20px 10px;
+}
+
+.products-grid{
+gap:10px;
+}
+
+.product-image{
+height:180px;
+}
+
+.product-info{
+padding:12px;
+}
+
+.product-name{
+font-size:12px;
+}
+
+.price{
+font-size:19px;
+}
+
+.store-logo-card{
+width:36px;
+height:36px;
+top:10px;
+left:10px;
+}
+
+.favorite{
+width:34px;
+height:34px;
+top:10px;
+right:10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<a href="index.html" style="text-decoration:none;">
+
+<div class="logo">
+PROMO<span>FLASH</span> ⚡
+</div>
+
+</a>
+
+<div class="search">
+
+<input
+id="searchInput"
+type="text"
+placeholder="Buscar produtos..."
+oninput="filtrarBusca()"
+>
+
+</div>
+
+<nav>
+
+<a href="index.html">
+Ofertas
+</a>
+
+<a href="categorias.html">
+Categorias
+</a>
+
+<a href="favoritos.html">
+❤️ Favoritos
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>🛍️ Categorias</h1>
+
+<p>
+Encontre rapidamente as melhores ofertas por categoria.
+</p>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="categories-grid">
+
+<div class="category-card active"
+onclick="selecionarCategoria('Todas',this)">
+
+<div class="category-icon">
+<i class="fas fa-border-all"></i>
+</div>
+
+<h3>Todas</h3>
+
+<p>Ver todas as ofertas</p>
+
+</div>
+
+
+<div class="category-card"
+onclick="selecionarCategoria('Eletrônicos',this)">
+
+<div class="category-icon">
+<i class="fas fa-tv"></i>
+</div>
+
+<h3>Eletrônicos</h3>
+
+<p>Celulares, TVs e mais</p>
+
+</div>
+
+
+<div class="category-card"
+onclick="selecionarCategoria('Casa',this)">
+
+<div class="category-icon">
+<i class="fas fa-house"></i>
+</div>
+
+<h3>Casa</h3>
+
+<p>Produtos para sua casa</p>
+
+</div>
+
+
+<div class="category-card"
+onclick="selecionarCategoria('Moda',this)">
+
+<div class="category-icon">
+<i class="fas fa-shirt"></i>
+</div>
+
+<h3>Moda</h3>
+
+<p>Roupas e acessórios</p>
+
+</div>
+
+
+<div class="category-card"
+onclick="selecionarCategoria('Beleza',this)">
+
+<div class="category-icon">
+<i class="fas fa-heart"></i>
+</div>
+
+<h3>Beleza</h3>
+
+<p>Cuidados e cosméticos</p>
+
+</div>
+
+
+<div class="category-card"
+onclick="selecionarCategoria('Celulares',this)">
+
+<div class="category-icon">
+<i class="fas fa-mobile-screen"></i>
+</div>
+
+<h3>Celulares</h3>
+
+<p>Smartphones e acessórios</p>
+
+</div>
+
+
+<div class="category-card"
+onclick="selecionarCategoria('Informática',this)">
+
+<div class="category-icon">
+<i class="fas fa-laptop"></i>
+</div>
+
+<h3>Informática</h3>
+
+<p>PCs, notebooks e acessórios</p>
+
+</div>
+
+
+<div class="category-card"
+onclick="selecionarCategoria('Games',this)">
+
+<div class="category-icon">
+<i class="fas fa-gamepad"></i>
+</div>
+
+<h3>Games</h3>
+
+<p>Jogos e consoles</p>
+
+</div>
+
+</div>
+
+
+<div class="products-title">
+
+<h2 id="tituloCategoria">
+Todas as ofertas
+</h2>
+
+<span id="quantidade"></span>
+
+</div>
+
+
+<div
+id="productsGrid"
+class="products-grid">
+</div>
+
+
+</main>
+
+
+<footer>
+
+<strong>PROMOFLASH ⚡</strong>
+
+<p style="color:#aaa;margin-top:8px;">
+As melhores ofertas da internet.
+</p>
+
+</footer>
+
+
+<script type="module">
+
+import {
+initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyBKBfq3LVRX9CWchlx4Xl-1k03NxEjXhMU",
+
+authDomain:"garimpatudo-c1d44.firebaseapp.com",
+
+databaseURL:"https://garimpatudo-c1d44-default-rtdb.firebaseio.com",
+
+projectId:"garimpatudo-c1d44",
+
+storageBucket:"garimpatudo-c1d44.firebasestorage.app",
+
+messagingSenderId:"1095541536253",
+
+appId:"1:1095541536253:web:3ca5da84d0fff9fc9c1594",
+
+measurementId:"G-NCMPX8LH01"
+
+};
+
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+let produtos = [];
+
+let categoriaAtual = "Todas";
+
+
+function valor(produto,...campos){
+
+for(const campo of campos){
+
+if(
+produto[campo] !== undefined &&
+produto[campo] !== null &&
+produto[campo] !== ""
+){
+return produto[campo];
+}
+
+}
+
+return "";
+
+}
+
+
+function imagem(produto){
+
+return valor(
+produto,
+"imagem",
+"image",
+"foto"
+) ||
+"https://via.placeholder.com/500x500?text=PromoFlash";
+
+}
+
+
+function logo(produto){
+
+return valor(
+produto,
+"logoLoja",
+"logo",
+"storeLogo"
+);
+
+}
+
+
+function preco(produto){
+
+let valorPreco =
+valor(produto,"preco","price");
+
+if(!valorPreco) return "";
+
+let numero =
+String(valorPreco)
+.replace("R$","")
+.replace(/\./g,"")
+.replace(",",".")
+.trim();
+
+let n = parseFloat(numero);
+
+if(isNaN(n))
+return valorPreco;
+
+return n.toLocaleString(
+"pt-BR",
+{
+style:"currency",
+currency:"BRL"
+}
+);
+
+}
+
+
+function precoAntigo(produto){
+
+let valorPreco =
+valor(
+produto,
+"precoAntigo",
+"precoAnterior",
+"oldPrice"
+);
+
+if(!valorPreco) return "";
+
+let numero =
+String(valorPreco)
+.replace("R$","")
+.replace(/\./g,"")
+.replace(",",".")
+.trim();
+
+let n = parseFloat(numero);
+
+if(isNaN(n))
+return valorPreco;
+
+return n.toLocaleString(
+"pt-BR",
+{
+style:"currency",
+currency:"BRL"
+}
+);
+
+}
+
+
+function tempo(timestamp){
+
+if(!timestamp) return "";
+
+let data;
+
+if(timestamp?.toMillis){
+
+data =
+new Date(timestamp.toMillis());
+
+}else if(timestamp?.seconds){
+
+data =
+new Date(timestamp.seconds*1000);
+
+}else{
+
+data =
+new Date(timestamp);
+
+}
+
+if(isNaN(data.getTime()))
+return "";
+
+let minutos =
+Math.floor(
+(Date.now()-data.getTime())/60000
+);
+
+if(minutos < 1)
+return "Postado agora";
+
+if(minutos < 60)
+return `Postado há ${minutos} min`;
+
+let horas =
+Math.floor(minutos/60);
+
+if(horas < 24)
+return `Postado há ${horas}h`;
+
+let dias =
+Math.floor(horas/24);
+
+return `Postado há ${dias} dia${dias>1?"s":""}`;
+
+}
+
+
+function escapar(texto){
+
+return String(texto || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+async function carregar(){
+
+const snapshot =
+await getDocs(
+collection(db,"produtos")
+);
+
+produtos=[];
+
+snapshot.forEach(doc=>{
+
+produtos.push({
+id:doc.id,
+...doc.data()
+});
+
+});
+
+renderizar();
+
+}
+
+
+function obterCategoria(produto){
+
+return String(
+valor(
+produto,
+"categoria",
+"category"
+)
+).trim();
+
+}
+
+
+window.selecionarCategoria =
+function(categoria,elemento){
+
+categoriaAtual =
+categoria;
+
+document
+.querySelectorAll(".category-card")
+.forEach(card=>{
+card.classList.remove("active");
+});
+
+elemento.classList.add("active");
+
+document.getElementById("searchInput").value="";
+
+renderizar();
+
+};
+
+
+window.filtrarBusca = function(){
+
+renderizar();
+
+};
+
+
+function renderizar(){
+
+const busca =
+document.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+
+let lista =
+produtos.filter(produto=>{
+
+const categoria =
+obterCategoria(produto);
+
+const nome =
+String(produto.nome || "")
+.toLowerCase();
+
+const pertence =
+categoriaAtual === "Todas"
+||
+categoria.toLowerCase() ===
+categoriaAtual.toLowerCase();
+
+
+return pertence &&
+nome.includes(busca);
+
+});
+
+
+document.getElementById("tituloCategoria")
+.textContent =
+categoriaAtual === "Todas"
+?
+"Todas as ofertas"
+:
+`Ofertas de ${categoriaAtual}`;
+
+
+document.getElementById("quantidade")
+.textContent =
+`${lista.length} produto${lista.length!==1?"s":""}`;
+
+
+if(!lista.length){
+
+document.getElementById("productsGrid")
+.innerHTML=`
+
+<div class="empty">
+
+<i class="fas fa-box-open"></i>
+
+<h3>Nenhuma oferta encontrada</h3>
+
+<p>
+Ainda não existem produtos nessa categoria.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+document.getElementById("productsGrid")
+.innerHTML =
+lista.map(produto=>{
+
+const id =
+produto.id;
+
+const nome =
+escapar(produto.nome);
+
+const img =
+imagem(produto);
+
+const logoLoja =
+logo(produto);
+
+const link =
+produto.link || "#";
+
+const favorito =
+JSON.parse(
+localStorage.getItem(
+"favoritosPromoFlash"
+)
+|| "[]"
+).includes(id);
+
+
+return `
+
+<article class="product-card">
+
+<div class="product-image">
+
+${
+logoLoja
+?
+`
+
+<img
+src="${escapar(logoLoja)}"
+class="store-logo-card"
+alt="Logo da loja"
+onerror="this.style.display='none'"
+>
+
+`
+:
+""
+}
+
+
+<button
+class="favorite"
+onclick="toggleFavorito('${id}')"
+>
+
+<i class="${
+favorito
+?
+"fas"
+:
+"far"
+} fa-heart"></i>
+
+</button>
+
+
+<img
+src="${escapar(img)}"
+alt="${nome}"
+loading="lazy"
+onerror="
+this.onerror=null;
+this.src='https://via.placeholder.com/500x500?text=PromoFlash';
+"
+>
+
+</div>
+
+
+<div class="product-info">
+
+<div class="posted-time">
+
+${tempo(produto.timestamp)}
+
+</div>
+
+
+<div class="product-name">
+
+${nome}
+
+</div>
+
+
+${
+precoAntigo(produto)
+?
+`
+
+<div class="old-price">
+${precoAntigo(produto)}
+</div>
+
+`
+:
+""
+}
+
+
+<div class="price">
+
+${preco(produto)}
+
+</div>
+
+
+<a
+href="${escapar(link)}"
+target="_blank"
+rel="noopener noreferrer"
+class="offer-btn"
+>
+
+ACESSAR OFERTA
+
+</a>
+
+
+</div>
+
+</article>
+
+`;
+
+}).join("");
+
+}
+
+
+window.toggleFavorito =
+function(id){
+
+let favoritos =
+JSON.parse(
+localStorage.getItem(
+"favoritosPromoFlash"
+)
+|| "[]"
+);
+
+if(favoritos.includes(id)){
+
+favoritos =
+favoritos.filter(
+item=>item!==id
+);
+
+}else{
+
+favoritos.push(id);
+
+}
+
+localStorage.setItem(
+"favoritosPromoFlash",
+JSON.stringify(favoritos)
+);
+
+renderizar();
+
+};
+
+
+carregar();
+
+</script>
+
+</body>
+
+</html>

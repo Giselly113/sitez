@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Favoritos - PromoFlash ⚡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f5f5f5;
+    color:#171717;
+}
+
+header{
+    background:#fff;
+    border-bottom:1px solid #eee;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.header{
+    max-width:1200px;
+    margin:auto;
+    height:72px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    padding:0 20px;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:900;
+    color:#e60000;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#111;
+}
+
+.search{
+    flex:1;
+    position:relative;
+}
+
+.search input{
+    width:100%;
+    height:44px;
+    border:1px solid #ddd;
+    border-radius:25px;
+    padding:0 50px 0 18px;
+    outline:none;
+    font-size:14px;
+}
+
+.search button{
+    position:absolute;
+    right:5px;
+    top:5px;
+    width:34px;
+    height:34px;
+    border:0;
+    border-radius:50%;
+    background:#e60000;
+    color:#fff;
+    cursor:pointer;
+}
+
+nav{
+    display:flex;
+    gap:22px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#222;
+    font-size:14px;
+    font-weight:700;
+}
+
+nav a:hover{
+    color:#e60000;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.hero{
+    background:linear-gradient(135deg,#111,#260000);
+    color:white;
+    padding:55px 20px;
+}
+
+.hero-content{
+    max-width:1200px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#ddd;
+}
+
+.container{
+    max-width:1200px;
+    margin:35px auto;
+    padding:0 20px;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.section-title h2{
+    font-size:25px;
+}
+
+.count{
+    background:#fff;
+    border:1px solid #ddd;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.product-card{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+    transition:.2s;
+}
+
+.product-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.product-image{
+    height:240px;
+    background:#fff;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+}
+
+.product-image > img:last-child{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.store-logo-card{
+    position:absolute;
+    top:12px;
+    left:12px;
+    width:43px;
+    height:43px;
+    object-fit:contain;
+    background:#fff;
+    border:2px solid #fff;
+    border-radius:50%;
+    padding:5px;
+    box-shadow:0 4px 14px rgba(0,0,0,.16);
+    z-index:4;
+}
+
+.favorite{
+    position:absolute;
+    top:12px;
+    right:12px;
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+    color:#e60000;
+    cursor:pointer;
+    font-size:17px;
+    z-index:5;
+}
+
+.product-info{
+    padding:17px;
+}
+
+.posted-time{
+    color:#999;
+    font-size:11px;
+    margin-bottom:8px;
+}
+
+.product-name{
+    font-size:14px;
+    font-weight:700;
+    line-height:1.4;
+    min-height:40px;
+}
+
+.old-price{
+    color:#999;
+    text-decoration:line-through;
+    font-size:12px;
+    margin-top:12px;
+}
+
+.price{
+    font-size:24px;
+    font-weight:900;
+    color:#111;
+    margin-top:2px;
+}
+
+.coupon{
+    margin-top:12px;
+}
+
+.show-coupon{
+    width:100%;
+    border:1px dashed #e60000;
+    background:#fff5f5;
+    color:#e60000;
+    padding:10px;
+    border-radius:8px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.coupon-box{
+    display:none;
+    background:#fff5f5;
+    border:1px dashed #e60000;
+    border-radius:9px;
+    padding:10px;
+}
+
+.coupon-box.show{
+    display:block;
+}
+
+.coupon-code{
+    display:block;
+    text-align:center;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#e60000;
+    margin-bottom:8px;
+}
+
+.coupon-buttons{
+    display:flex;
+    gap:6px;
+}
+
+.coupon-buttons button{
+    flex:1;
+    border:0;
+    border-radius:6px;
+    padding:8px;
+    cursor:pointer;
+    font-weight:800;
+}
+
+.copy{
+    background:#e60000;
+    color:#fff;
+}
+
+.close{
+    background:#ddd;
+    color:#222;
+}
+
+.offer-btn{
+    display:block;
+    width:100%;
+    margin-top:12px;
+    text-align:center;
+    background:#e60000;
+    color:#fff;
+    text-decoration:none;
+    padding:12px;
+    border-radius:9px;
+    font-size:13px;
+    font-weight:900;
+}
+
+.empty{
+    background:#fff;
+    border-radius:18px;
+    padding:70px 20px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.empty i{
+    font-size:55px;
+    color:#ddd;
+    margin-bottom:20px;
+}
+
+.empty h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.empty p{
+    color:#777;
+    margin-bottom:20px;
+}
+
+.empty a{
+    display:inline-block;
+    background:#e60000;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:800;
+}
+
+footer{
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:35px 20px;
+    margin-top:60px;
+}
+
+@media(max-width:900px){
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    nav{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .header{
+        height:64px;
+        justify-content:space-between;
+    }
+
+    .search{
+        display:none;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .hero{
+        padding:40px 20px;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .product-image{
+        height:180px;
+    }
+
+    .product-info{
+        padding:12px;
+    }
+
+    .product-name{
+        font-size:12px;
+    }
+
+    .price{
+        font-size:19px;
+    }
+
+    .store-logo-card{
+        width:36px;
+        height:36px;
+        top:10px;
+        left:10px;
+    }
+
+    .favorite{
+        width:34px;
+        height:34px;
+        top:10px;
+        right:10px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<a href="index.html" style="text-decoration:none;">
+<div class="logo">
+PROMO<span>FLASH</span> 
+</div>
+</a>
+
+<div class="search">
+<input
+type="text"
+id="searchInput"
+placeholder="Buscar produtos..."
+oninput="buscarProdutos()"
+>
+
+<button>
+<i class="fas fa-search"></i>
+</button>
+</div>
+
+<nav>
+<a href="index.html">Ofertas</a>
+<a href="categorias.html">Categorias</a>
+<a href="favoritos.html">
+<i class="fas fa-heart"></i>
+Favoritos
+</a>
+</nav>
+
+<button class="menu-btn" onclick="window.location.href='index.html'">
+<i class="fas fa-home"></i>
+</button>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1> Meus Favoritos</h1>
+
+<p>
+Aqui ficam as ofertas que você salvou para ver depois.
+</p>
+
+</div>
+
+</section>
+
+<main class="container">
+
+<div class="section-title">
+
+<h2>Produtos favoritos</h2>
+
+<div class="count" id="count">
+0 produtos
+</div>
+
+</div>
+
+<div id="productsGrid" class="products-grid"></div>
+
+</main>
+
+<footer>
+
+<strong>PROMOFLASH </strong>
+
+<p style="margin-top:8px;color:#aaa;">
+As melhores ofertas da internet.
+</p>
+
+</footer>
+
+<script type="module">
+
+import {
+initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyBKBfq3LVRX9CWchlx4Xl-1k03NxEjXhMU",
+
+authDomain:"garimpatudo-c1d44.firebaseapp.com",
+
+databaseURL:"https://garimpatudo-c1d44-default-rtdb.firebaseio.com",
+
+projectId:"garimpatudo-c1d44",
+
+storageBucket:"garimpatudo-c1d44.firebasestorage.app",
+
+messagingSenderId:"1095541536253",
+
+appId:"1:1095541536253:web:3ca5da84d0fff9fc9c1594",
+
+measurementId:"G-NCMPX8LH01"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+let produtos = [];
+
+let favoritos =
+JSON.parse(localStorage.getItem("favoritosPromoFlash")) || [];
+
+
+function obterValor(produto,...campos){
+
+for(const campo of campos){
+
+if(
+produto[campo] !== undefined &&
+produto[campo] !== null &&
+produto[campo] !== ""
+){
+return produto[campo];
+}
+
+}
+
+return "";
+}
+
+
+function obterImagem(produto){
+
+return obterValor(
+produto,
+"imagem",
+"image",
+"foto"
+) || "https://via.placeholder.com/500x500?text=PromoFlash";
+
+}
+
+
+function obterLogo(produto){
+
+return obterValor(
+produto,
+"logoLoja",
+"logo",
+"storeLogo"
+);
+
+}
+
+
+function obterCupom(produto){
+
+return obterValor(
+produto,
+"cupom",
+"coupon",
+"codigoCupom"
+);
+
+}
+
+
+function obterPreco(produto){
+
+return obterValor(
+produto,
+"preco",
+"price"
+);
+
+}
+
+
+function obterPrecoAntigo(produto){
+
+return obterValor(
+produto,
+"precoAntigo",
+"precoAnterior",
+"oldPrice"
+);
+
+}
+
+
+function formatarPreco(valor){
+
+if(!valor) return "";
+
+let numero = String(valor)
+.replace("R$","")
+.replace(/\./g,"")
+.replace(",",".")
+.trim();
+
+let n = parseFloat(numero);
+
+if(isNaN(n)) return valor;
+
+return n.toLocaleString("pt-BR",{
+style:"currency",
+currency:"BRL"
+});
+
+}
+
+
+function tempoPostagem(timestamp){
+
+if(!timestamp) return "";
+
+let data;
+
+if(timestamp?.toMillis){
+data = new Date(timestamp.toMillis());
+}else if(timestamp?.seconds){
+data = new Date(timestamp.seconds * 1000);
+}else{
+data = new Date(timestamp);
+}
+
+if(isNaN(data.getTime())) return "";
+
+const diff =
+Date.now() - data.getTime();
+
+const minutos =
+Math.floor(diff / 60000);
+
+if(minutos < 1)
+return "Postado agora";
+
+if(minutos < 60)
+return `Postado há ${minutos} min`;
+
+const horas =
+Math.floor(minutos / 60);
+
+if(horas < 24)
+return `Postado há ${horas}h`;
+
+const dias =
+Math.floor(horas / 24);
+
+if(dias < 30)
+return `Postado há ${dias} dia${dias > 1 ? "s":""}`;
+
+const meses =
+Math.floor(dias / 30);
+
+if(meses < 12)
+return `Postado há ${meses} mês${meses > 1 ? "es":""}`;
+
+const anos =
+Math.floor(meses / 12);
+
+return `Postado há ${anos} ano${anos > 1 ? "s":""}`;
+
+}
+
+
+function escapar(texto){
+
+return String(texto || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+async function carregarProdutos(){
+
+try{
+
+const snapshot =
+await getDocs(collection(db,"produtos"));
+
+produtos = [];
+
+snapshot.forEach(doc=>{
+
+produtos.push({
+id:doc.id,
+...doc.data()
+});
+
+});
+
+renderizar();
+
+}catch(error){
+
+console.error(error);
+
+document.getElementById("productsGrid").innerHTML = `
+
+<div class="empty">
+
+<i class="fas fa-triangle-exclamation"></i>
+
+<h3>Erro ao carregar ofertas</h3>
+
+<p>
+Não foi possível carregar os produtos.
+</p>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+function renderizar(){
+
+const busca =
+document.getElementById("searchInput").value
+.toLowerCase()
+.trim();
+
+
+let lista = produtos.filter(produto=>{
+
+const favorito =
+favoritos.includes(produto.id);
+
+const nome =
+String(produto.nome || "")
+.toLowerCase();
+
+return favorito && nome.includes(busca);
+
+});
+
+
+document.getElementById("count").textContent =
+`${lista.length} produto${lista.length !== 1 ? "s":""}`;
+
+
+if(!lista.length){
+
+document.getElementById("productsGrid").innerHTML = `
+
+<div class="empty" style="grid-column:1/-1;">
+
+<i class="far fa-heart"></i>
+
+<h3>Nenhum favorito ainda</h3>
+
+<p>
+Você ainda não salvou nenhuma oferta.
+</p>
+
+<a href="index.html">
+Ver ofertas
+</a>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+document.getElementById("productsGrid").innerHTML =
+lista.map(montarCard).join("");
+
+}
+
+
+function montarCard(produto){
+
+const id = produto.id;
+
+const nome =
+escapar(produto.nome || "Produto");
+
+const imagem =
+obterImagem(produto);
+
+const logo =
+obterLogo(produto);
+
+const cupom =
+obterCupom(produto);
+
+const preco =
+formatarPreco(obterPreco(produto));
+
+const precoAntigo =
+formatarPreco(obterPrecoAntigo(produto));
+
+const link =
+produto.link || "#";
+
+return `
+
+<article class="product-card">
+
+<div class="product-image">
+
+${
+logo
+?
+`
+<img
+src="${escapar(logo)}"
+class="store-logo-card"
+alt="Logo da loja"
+loading="lazy"
+onerror="this.style.display='none'"
+>
+`
+:
+""
+}
+
+<button
+class="favorite"
+onclick="removerFavorito('${id}')"
+title="Remover dos favoritos"
+>
+
+<i class="fas fa-heart"></i>
+
+</button>
+
+<img
+src="${escapar(imagem)}"
+alt="${nome}"
+loading="lazy"
+onerror="
+this.onerror=null;
+this.src='https://via.placeholder.com/500x500?text=PromoFlash';
+"
+>
+
+</div>
+
+<div class="product-info">
+
+<div class="posted-time">
+${tempoPostagem(produto.timestamp)}
+</div>
+
+<div class="product-name">
+${nome}
+</div>
+
+${
+precoAntigo
+?
+`<div class="old-price">${precoAntigo}</div>`
+:
+""
+}
+
+<div class="price">
+${preco}
+</div>
+
+${
+cupom
+?
+`
+
+<div class="coupon">
+
+<button
+class="show-coupon"
+id="show-coupon-${id}"
+onclick="mostrarCupom('${id}')"
+>
+
+🎟️ MOSTRAR CUPOM
+
+</button>
+
+<div
+class="coupon-box"
+id="coupon-${id}"
+>
+
+<span
+class="coupon-code"
+id="coupon-code-${id}"
+>
+${escapar(cupom)}
+</span>
+
+<div class="coupon-buttons">
+
+<button
+class="copy"
+onclick="copiarCupom('${id}')"
+>
+COPIAR
+</button>
+
+<button
+class="close"
+onclick="fecharCupom('${id}')"
+>
+FECHAR
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`
+:
+""
+}
+
+<a
+href="${escapar(link)}"
+target="_blank"
+rel="noopener noreferrer"
+class="offer-btn"
+>
+
+ACESSAR OFERTA
+
+</a>
+
+</div>
+
+</article>
+
+`;
+
+}
+
+
+window.removerFavorito = function(id){
+
+favoritos =
+favoritos.filter(item=>item !== id);
+
+localStorage.setItem(
+"favoritosPromoFlash",
+JSON.stringify(favoritos)
+);
+
+renderizar();
+
+};
+
+
+window.mostrarCupom = function(id){
+
+const produto =
+produtos.find(item=>item.id === id);
+
+if(!produto) return;
+
+const cupom =
+obterCupom(produto);
+
+const box =
+document.getElementById("coupon-"+id);
+
+const botao =
+document.getElementById("show-coupon-"+id);
+
+const code =
+document.getElementById("coupon-code-"+id);
+
+if(!box || !code) return;
+
+code.textContent = cupom;
+
+box.classList.add("show");
+
+if(botao)
+botao.style.display="none";
+
+};
+
+
+window.fecharCupom = function(id){
+
+const box =
+document.getElementById("coupon-"+id);
+
+const botao =
+document.getElementById("show-coupon-"+id);
+
+if(box)
+box.classList.remove("show");
+
+if(botao)
+botao.style.display="flex";
+
+};
+
+
+window.copiarCupom = async function(id){
+
+const produto =
+produtos.find(item=>item.id === id);
+
+if(!produto) return;
+
+const cupom =
+obterCupom(produto);
+
+try{
+
+await navigator.clipboard.writeText(cupom);
+
+alert("Cupom copiado!");
+
+}catch{
+
+alert("Não foi possível copiar o cupom.");
+
+}
+
+};
+
+
+window.buscarProdutos = function(){
+
+renderizar();
+
+};
+
+
+carregarProdutos();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PromoFlash — Detalhes da Oferta</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --azul:#ffffff;
+      --azul2:#ffffff;
+      --bg:#f5f7fb;
+      --texto:#02162f;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
+    body{background:var(--bg);color:var(--texto);padding-top:90px}
+
+    /* ===== HEADER ===== */
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      background:linear-gradient(90deg,var(--azul),var(--azul2));
+      color:#008fa9;;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 20px;
+      z-index:1000;
+    }
+    .logo{font-weight:800;font-size:20px}
+
+    .menu-btn{
+      display:none;
+      background:none;
+      border:none;
+      color:#ffffff;
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    nav{
+      display:flex;
+      gap:20px;
+    }
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      opacity:.9;
+    }
+    nav a:hover{opacity:1}
+
+    /* ===== MENU RESPONSIVO ===== */
+    @media(max-width:768px){
+      .menu-btn{display:block}
+      nav{
+        position:absolute;
+        top:60px;
+        right:20px;
+        background:#fff;
+        flex-direction:column;
+        padding:15px;
+        border-radius:12px;
+        box-shadow:0 10px 30px rgba(0,0,0,.2);
+        display:none;
+      }
+      nav.ativo{display:flex}
+      nav a{color:#02162f}
+    }
+
+    /* ===== CONTAINER ===== */
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:20px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,.1);
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    @media(max-width:900px){
+      .card{grid-template-columns:1fr}
+    }
+
+    /* ===== IMAGEM ===== */
+    .img-box{
+      position:relative;
+      text-align:center;
+    }
+    .img-box img{
+      max-width:100%;
+      height:320px;
+      object-fit:contain;
+    }
+    .tarja{
+      position:absolute;
+      top:20px;
+      left:-40px;
+      background:red;
+      color:#fff;
+      font-weight:800;
+      padding:8px 70px;
+      transform:rotate(-20deg);
+      display:none;
+    }
+
+   /* ===== INFO ===== */
+h1{
+  font-size:24px;
+  margin-bottom:10px;
+  color:#02162f; /* título escuro */
+}
+
+.preco{
+  font-size:28px;
+  font-weight:800;
+  color: #008fa9; /* vermelho chamativo (promoção) */
+  margin-bottom:10px;
+}
+
+    .preco.encerrada{color:red}
+    .descricao{
+      font-size:15px;
+      line-height:1.6;
+      color:#444;
+      margin-bottom:15px;
+    }
+
+    /* CUPOM */
+    .cupom-box{
+      display:none;
+      margin-bottom:15px;
+    }
+   .cupom{
+  display:inline-block;
+  border:2px dashed #000000; /* vermelho cupom */
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:800;
+  color:#0c0c0d;
+  background:#fffbfb; /* fundo suave */
+  margin-right:10px;
+}
+
+  .btn-copy{
+  background:linear-gradient(90deg,#000000,#000000); /* vermelho botão */
+  border:none;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+}
+.btn-copy{
+  background:linear-gradient(90deg,#008fa9,#008fa9);
+  color:#fff;
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn-copy.copiado{
+  background:linear-gradient(90deg,#2ecc71,#27ae60);
+}
+
+
+  /* BOTÃO */
+.btn-buy{
+  width:100%;
+  padding:16px;
+  font-size:18px;
+  font-weight:800;
+  background:linear-gradient(90deg,#008fa9,#008fa9); /* azul botão */
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+}
+
+    .btn-buy.encerrada{
+      background:#999;
+      cursor:not-allowed;
+    }
+
+    /* TEXTO ABAIXO DO BOTÃO */
+    .info-extra{
+      font-size:13px;
+      color:#666;
+      margin-top:10px;
+      line-height:1.5;
+    }
+
+    footer{
+      text-align:center;
+      font-size:13px;
+      color:#666;
+      padding:25px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">PROMOFLASH</div>
+  <button class="menu-btn" id="menuBtn"><i class="fa fa-bars"></i></button>
+  <nav id="menu">
+    <a href="index.html">Início</a>
+    <a href="index.html">Ofertas</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="card">
+
+    <div class="img-box">
+      <img id="imgProduto">
+      <div class="tarja" id="tarja">OFERTA ENCERRADA</div>
+    </div>
+
+    <div>
+      <h1 id="titulo">Carregando...</h1>
+      <div class="preco" id="preco"></div>
+      <div class="descricao" id="descricao"></div>
+
+      <div class="cupom-box" id="cupomBox">
+        <span class="cupom" id="cupom"></span>
+        <button class="btn-copy" onclick="copiarCupom()">Copiar</button>
+      </div>
+
+      <button class="btn-buy" id="btnComprar">Pegar promoção</button>
+
+      <!-- DESCRIÇÃO EXTRA -->
+      <div class="info-extra">
+        🔔 Os preços e cupons são atualizados em tempo real.  
+        Caso a promoção tenha encerrado, o valor pode mudar diretamente na loja oficial.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>© 2025 PromoFlash — Todos os direitos reservados.</footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+
+/* ===== FIREBASE ===== */
+const firebaseConfig = {
+  apiKey: "AIzaSyBKBfq3LVRX9CWchlx4Xl-1k03NxEjXhMU",
+  authDomain: "garimpatudo-c1d44.firebaseapp.com",
+  projectId: "garimpatudo-c1d44",
+  storageBucket: "garimpatudo-c1d44.appspot.com",
+  messagingSenderId: "1095541536253",
+  appId: "1:1095541536253:web:3ca5da84d0fff9fc9c1594"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+/* ===== PEGAR ID DA URL ===== */
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+if(!id){
+  alert("Produto inválido");
+  throw new Error("ID não encontrado na URL");
+}
+
+let cupomAtual = "";
+
+/* ===== MENU ===== */
+document.getElementById("menuBtn")?.addEventListener("click",()=>{
+  document.getElementById("menu")?.classList.toggle("ativo");
+});
+
+/* ===== CARREGAR PRODUTO ===== */
+async function carregar(){
+  try{
+    const refDoc = doc(db, "produtos", id);
+    const snap = await getDoc(refDoc);
+
+    if(!snap.exists()){
+      alert("Produto não encontrado");
+      return;
+    }
+
+    const p = snap.data();
+
+    /* TEXTO */
+    titulo.innerText = p.nome || "Produto sem nome";
+    descricao.innerText = p.descricao || "";
+
+    /* IMAGEM */
+    let imgFinal = p.imagem || "";
+    if(imgFinal.startsWith("gs://")){
+      imgFinal = await getDownloadURL(ref(storage, imgFinal));
+    }
+    imgProduto.src = imgFinal;
+
+    /* STATUS */
+    if(p.status === "ativo"){
+      preco.innerText = `R$ ${p.preco || "-"}`;
+
+      btnComprar.onclick = ()=>{
+        if(p.cupom){
+          navigator.clipboard.writeText(p.cupom);
+        }
+        window.open(p.link, "_blank");
+      };
+
+      if(p.cupom){
+        cupomBox.style.display = "block";
+        cupom.innerText = p.cupom;
+        cupomAtual = p.cupom;
+      }
+
+    }else{
+      preco.innerText = "Oferta encerrada";
+      preco.classList.add("encerrada");
+      btnComprar.classList.add("encerrada");
+      btnComprar.disabled = true;
+      tarja.style.display = "block";
+    }
+
+  }catch(err){
+    console.error("Erro ao carregar produto:", err);
+    alert("Erro ao carregar a oferta");
+  }
+}
+
+/* ===== COPIAR CUPOM ===== */
+window.copiarCupom = () => {
+  if (!cupomAtual) return;
+
+  navigator.clipboard.writeText(cupomAtual).then(() => {
+    const btn = document.querySelector(".btn-copy");
+
+    btn.classList.add("copiado");
+    btn.innerText = "Copiado ✔";
+
+    setTimeout(() => {
+      btn.classList.remove("copiado");
+      btn.innerText = "Copiar cupom";
+    }, 2000);
+  });
+};
+
+/* ===== INIT ===== */
+carregar();
+</script>

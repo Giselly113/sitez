@@ -1,0 +1,3894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#e50914">
+
+<meta
+name="description"
+content="PromoFlash - As melhores ofertas e promoções da internet"
+>
+
+<title>PromoFlash Ofertas do Dia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =====================================================
+VARIÁVEIS
+===================================================== */
+
+:root{
+    --red:#e50914;
+    --red-dark:#b70710;
+    --red-light:#fff0f1;
+    --black:#111;
+    --white:#fff;
+    --background:#f6f6f6;
+    --text:#111;
+    --muted:#777;
+    --border:#e7e7e7;
+
+    --shadow:
+        0 8px 30px rgba(0,0,0,.07);
+
+    --shadow-hover:
+        0 18px 45px rgba(0,0,0,.13);
+
+    --radius:18px;
+}
+
+/* =====================================================
+RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--background);
+    color:var(--text);
+    padding-top:72px;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =====================================================
+HEADER
+===================================================== */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:72px;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,0,0,.07);
+    z-index:9999;
+}
+
+.header-container{
+    max-width:1280px;
+    height:100%;
+    margin:auto;
+    padding:0 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+/* =====================================================
+LOGO
+===================================================== */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:2px;
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:-1.2px;
+    white-space:nowrap;
+}
+
+.logo-main{
+    color:var(--black);
+}
+
+.logo-flash{
+    color:var(--red);
+}
+
+.logo-icon{
+    color:var(--red);
+    margin-left:4px;
+}
+
+/* =====================================================
+BUSCA
+===================================================== */
+
+.header-search{
+    flex:1;
+    max-width:400px;
+    position:relative;
+}
+
+.header-search i{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#999;
+}
+
+.header-search input{
+    width:100%;
+    height:43px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:#f8f8f8;
+    padding:0 15px 0 43px;
+    outline:none;
+    font-size:13px;
+    transition:.2s;
+}
+
+.header-search input:focus{
+    background:#fff;
+    border-color:var(--red);
+    box-shadow:
+        0 0 0 4px
+        rgba(229,9,20,.08);
+}
+
+/* =====================================================
+NAV
+===================================================== */
+
+.desktop-nav{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.desktop-nav a{
+    padding:10px 13px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:800;
+    color:#555;
+    transition:.2s;
+}
+
+.desktop-nav a:hover{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+/* =====================================================
+BOTÃO MENU
+===================================================== */
+
+.mobile-menu-button{
+    display:none;
+    width:43px;
+    height:43px;
+    border:0;
+    border-radius:12px;
+    background:var(--red);
+    color:#fff;
+    font-size:18px;
+    box-shadow:
+        0 7px 18px
+        rgba(229,9,20,.20);
+}
+
+/* =====================================================
+MENU MOBILE
+===================================================== */
+
+.menu-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.62);
+    backdrop-filter:blur(3px);
+    opacity:0;
+    visibility:hidden;
+    transition:.25s;
+    z-index:10000;
+}
+
+.menu-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-320px;
+    width:300px;
+    height:100vh;
+    background:#fff;
+    z-index:10001;
+    padding:22px;
+    box-shadow:
+        -15px 0 50px
+        rgba(0,0,0,.20);
+    transition:.3s ease;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.mobile-menu-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-bottom:20px;
+    margin-bottom:15px;
+    border-bottom:1px solid var(--border);
+}
+
+.mobile-menu-logo{
+    font-size:19px;
+    font-weight:900;
+}
+
+.mobile-menu-close{
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:10px;
+    background:#f2f2f2;
+    font-size:17px;
+}
+
+.mobile-link{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:14px 12px;
+    border-radius:12px;
+    color:#333;
+    font-size:14px;
+    font-weight:800;
+    margin-bottom:4px;
+    transition:.2s;
+}
+
+.mobile-link i{
+    width:20px;
+    text-align:center;
+    color:var(--red);
+}
+
+.mobile-link:hover{
+    background:var(--red-light);
+    color:var(--red);
+}
+
+/* =====================================================
+HERO
+===================================================== */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(229,9,20,.45),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(229,9,20,.22),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #090909,
+            #151515 60%,
+            #240507
+        );
+
+    color:#fff;
+}
+
+.hero-container{
+    position:relative;
+    max-width:1280px;
+    margin:auto;
+    padding:68px 20px 60px;
+    text-align:center;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border-radius:50px;
+    background:rgba(229,9,20,.14);
+    border:1px solid rgba(229,9,20,.45);
+    font-size:11px;
+    font-weight:900;
+    margin-bottom:20px;
+}
+
+.hero-badge i{
+    color:#ff2631;
+}
+
+.hero h1{
+    font-size:clamp(34px,5vw,58px);
+    line-height:1.04;
+    font-weight:900;
+    letter-spacing:-2.5px;
+    max-width:900px;
+    margin:auto;
+}
+
+.hero h1 span{
+    color:#ff2631;
+}
+
+.hero p{
+    max-width:650px;
+    margin:18px auto 0;
+    font-size:15px;
+    line-height:1.7;
+    color:rgba(255,255,255,.72);
+}
+
+/* =====================================================
+BUSCA HERO
+===================================================== */
+
+.hero-search{
+    max-width:680px;
+    height:56px;
+    margin:30px auto 0;
+    display:flex;
+    background:#fff;
+    padding:6px;
+    border-radius:14px;
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.30);
+}
+
+.hero-search input{
+    flex:1;
+    min-width:0;
+    border:0;
+    outline:0;
+    padding:0 15px;
+    font-size:13px;
+}
+
+.hero-search button{
+    border:0;
+    background:var(--red);
+    color:#fff;
+    border-radius:10px;
+    padding:0 21px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.hero-search button:hover{
+    background:var(--red-dark);
+}
+
+/* =====================================================
+QUICK CARDS
+===================================================== */
+
+.quick-section{
+    max-width:1280px;
+    margin:-25px auto 0;
+    padding:0 20px;
+    position:relative;
+    z-index:5;
+}
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+    gap:14px;
+}
+
+.quick-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px;
+    box-shadow:var(--shadow);
+    display:flex;
+    align-items:center;
+    gap:13px;
+    transition:.2s;
+}
+
+.quick-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-hover);
+}
+
+.quick-icon{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--red-light);
+    color:var(--red);
+    font-size:17px;
+}
+
+.quick-card strong{
+    display:block;
+    font-size:12px;
+    font-weight:900;
+}
+
+.quick-card span{
+    display:block;
+    color:#999;
+    font-size:10px;
+    margin-top:4px;
+}
+
+/* =====================================================
+CONTAINER
+===================================================== */
+
+.container{
+    max-width:1280px;
+    margin:auto;
+    padding:38px 20px 70px;
+}
+
+/* =====================================================
+TÍTULO
+===================================================== */
+
+.section-title{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.section-title h2{
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:-.8px;
+}
+
+.section-title p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* =====================================================
+CATEGORIAS
+===================================================== */
+
+.categories{
+    display:flex;
+    gap:9px;
+    overflow-x:auto;
+    padding-bottom:8px;
+    margin-bottom:23px;
+    scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
+}
+
+.category{
+    flex-shrink:0;
+    border:1px solid var(--border);
+    background:#fff;
+    color:#555;
+    padding:10px 15px;
+    border-radius:50px;
+    font-size:11px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.category:hover{
+    border-color:var(--red);
+    color:var(--red);
+}
+
+.category.active{
+    background:var(--red);
+    border-color:var(--red);
+    color:#fff;
+    box-shadow:
+        0 6px 18px
+        rgba(229,9,20,.18);
+}
+
+/* =====================================================
+FILTROS
+===================================================== */
+
+.filters{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:13px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:25px;
+    box-shadow:var(--shadow);
+}
+
+.filter{
+    height:41px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:#fafafa;
+    padding:0 12px;
+    color:#444;
+    outline:none;
+    font-size:11px;
+    font-weight:700;
+}
+
+.filter:focus{
+    border-color:var(--red);
+}
+
+/* =====================================================
+GRID
+===================================================== */
+
+
+
+/* TABLETS E TELAS MENORES */
+@media (max-width: 800px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .product-card {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .product-image {
+        height: 230px;
+    }
+}
+
+/* CELULARES PEQUENOS */
+@media (max-width: 380px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+}
+
+/* =====================================================
+CARD
+===================================================== */
+
+.product-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform .25s, box-shadow .25s;
+    min-width: 0;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* =====================================================
+IMAGEM
+===================================================== */
+
+.product-image {
+    position: relative;
+    height: 230px;
+    background: linear-gradient(135deg, #fafafa, #f1f1f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.product-image > img:last-child {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: .25s;
+}
+
+.product-card:hover .product-image > img:last-child {
+    transform: scale(1.04);
+}
+
+/* =====================================================
+TABLETS
+===================================================== */
+
+@media (max-width: 1050px) {
+    .products-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+}
+
+/* =====================================================
+TELAS MENORES
+===================================================== */
+
+@media (max-width: 800px) {
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+}
+
+/* =====================================================
+CELULARES — 1 PRODUTO POR LINHA
+===================================================== */
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+        width: 100%;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+
+    .product-image {
+        height: 230px;
+    }
+}
+
+/* =====================================================
+CELULARES MUITO PEQUENOS
+===================================================== */
+
+@media (max-width: 380px) {
+    .products-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+}
+
+
+/* =====================================================
+LOGO DA LOJA
+===================================================== */
+
+
+
+.store-logo-card {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+
+    width: 60px;
+    height: 60px;
+
+    box-sizing: border-box;
+    object-fit: contain;
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    padding: 3px;
+
+    display: block;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+    z-index: 4;
+}
+
+
+/* =====================================================
+FAVORITO
+===================================================== */
+
+.favorite{
+    position:absolute;
+    top:12px;
+    right:12px;
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.97);
+    box-shadow:
+        0 4px 14px
+        rgba(0,0,0,.12);
+    color:#aaa;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.2s;
+}
+
+.favorite:hover{
+    transform:scale(1.08);
+}
+
+.favorite.active{
+    color:var(--red);
+}
+
+/* LOGO MAIOR NO CELULAR */
+@media (max-width: 600px) {
+    .store-logo-card {
+        width: 60px;
+        height: 60px;
+        top: 10px;
+        left: 10px;
+        padding: 3px;
+    }
+}
+
+/* =====================================================
+DESCONTO
+===================================================== */
+
+.discount{
+    position:absolute;
+    top:13px;
+    left:64px;
+    background:var(--red);
+    color:#fff;
+    border-radius:7px;
+    padding:6px 8px;
+    font-size:10px;
+    font-weight:900;
+    z-index:3;
+}
+
+/* =====================================================
+OFERTA ENCERRADA
+NÃO ALTERA TAMANHO DA GRADE
+===================================================== */
+
+.offer-closed-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10;
+    pointer-events:none;
+}
+
+.offer-closed-badge{
+    background:rgba(17,17,17,.92);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.9);
+    border-radius:10px;
+    padding:10px 15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.3px;
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.35);
+}
+
+.offer-closed-badge i{
+    color:#ff2631;
+    font-size:13px;
+}
+
+/* =====================================================
+INFORMAÇÕES
+===================================================== */
+
+.product-info{
+    padding:16px;
+}
+
+/* =====================================================
+META / TIMER CENTRALIZADO
+===================================================== */
+
+.product-meta{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:8px;
+    min-height:22px;
+    margin-bottom:9px;
+}
+
+.posted-time{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    color:#999;
+    font-size:9px;
+    font-weight:700;
+    white-space:nowrap;
+    text-align:center;
+}
+
+.posted-time i{
+    color:var(--red);
+    font-size:9px;
+}
+
+/* =====================================================
+NOME
+===================================================== */
+
+.product-name{
+    font-size:23px;
+    font-weight:800;
+    line-height:1.45;
+    min-height:39px;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+/* =====================================================
+PREÇO
+===================================================== */
+
+
+.product-price {
+    margin-top: 13px;
+}
+
+/* PREÇO ANTIGO RISCADO */
+.old-price {
+    color: #999999;
+    font-size: 10px;
+    text-decoration: line-through;
+}
+
+/* PREÇO ATUAL */
+.price {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -.8px;
+    color: #d81b1b;
+    margin-top: 2px;
+}
+
+/* PARCELAMENTO */
+.installment {
+    color: #777777;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+/* =====================================================
+CUPOM
+===================================================== */
+
+.coupon-area{
+    margin-top:13px;
+}
+
+.btn-cupom{
+    width:100%;
+    min-height:40px;
+    border:1px dashed var(--red);
+    border-radius:10px;
+    background:var(--red-light);
+    color:var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    font-size:10px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.btn-cupom:hover{
+    background:#ffe1e3;
+    transform:translateY(-1px);
+}
+
+.coupon-box{
+    display:none;
+    margin-top:8px;
+    padding:9px;
+    border-radius:10px;
+    background:#fff7f7;
+    border:1px solid #ffd1d4;
+    gap:7px;
+    align-items:center;
+}
+
+.coupon-box.show{
+    display:flex;
+}
+
+.coupon-code{
+    flex:1;
+    min-width:0;
+    padding:8px;
+    background:#fff;
+    border:1px dashed var(--red);
+    border-radius:7px;
+    color:var(--red);
+    font-size:11px;
+    font-weight:900;
+    text-align:center;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.btn-copy{
+    flex-shrink:0;
+    border:0;
+    border-radius:7px;
+    background:var(--black);
+    color:#fff;
+    padding:9px 10px;
+    font-size:9px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.btn-copy:hover{
+    background:var(--red);
+}
+
+.btn-close-coupon{
+    flex-shrink:0;
+    border:0;
+    border-radius:7px;
+    background:#eee;
+    color:#555;
+    padding:9px 9px;
+    font-size:9px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.btn-close-coupon:hover{
+    background:#ddd;
+    color:#111;
+}
+
+/* =====================================================
+ACESSAR OFERTA
+===================================================== */
+
+
+.btn-acessar {
+    margin-top: 10px;
+    width: 100%;
+    min-height: 45px;
+    border: 0;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: #111111;
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 900;
+    transition: .2s;
+
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
+}
+
+.btn-acessar:hover {
+    background: #000000;
+    transform: translateY(-2px);
+}
+
+
+/* BOTÃO VISÍVEL, MAS BLOQUEADO */
+.btn-acessar.encerrada{
+    cursor:not-allowed;
+    opacity:.72;
+}
+
+.btn-acessar.encerrada:hover{
+    background:var(--red);
+    transform:none;
+}
+
+/* =====================================================
+LOADING
+===================================================== */
+
+.loading{
+    grid-column:1/-1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px;
+}
+
+.spinner{
+    width:42px;
+    height:42px;
+    border:4px solid #eee;
+    border-top-color:var(--red);
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =====================================================
+EMPTY
+===================================================== */
+
+.empty{
+    grid-column:1/-1;
+    text-align:center;
+    padding:70px 20px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+}
+
+.empty i{
+    font-size:45px;
+    color:#ccc;
+    margin-bottom:15px;
+}
+
+.empty h3{
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.empty p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+.footer{
+    background:#0b0b0b;
+    color:#fff;
+    margin-top:30px;
+}
+
+.footer-container{
+    max-width:1280px;
+    margin:auto;
+    padding:45px 20px 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-brand h2{
+    font-size:22px;
+    font-weight:900;
+}
+
+.footer-brand p{
+    color:#999;
+    font-size:11px;
+    line-height:1.7;
+    max-width:330px;
+    margin-top:12px;
+}
+
+.footer h3{
+    font-size:12px;
+    margin-bottom:14px;
+}
+
+.footer a{
+    display:block;
+    color:#999;
+    font-size:11px;
+    margin-bottom:9px;
+    transition:.2s;
+}
+
+.footer a:hover{
+    color:#fffefe;
+}
+
+.footer-bottom{
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+    margin-top:35px;
+    padding-top:20px;
+    color:#666;
+    font-size:10px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+
+/* =====================================================
+TOAST
+===================================================== */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:
+        translate(-50%,120px);
+    background:#111;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:11px;
+    font-size:11px;
+    font-weight:800;
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.25);
+    z-index:20000;
+    transition:.3s;
+}
+
+.toast.show{
+    transform:
+        translate(-50%,0);
+}
+
+/* =====================================================
+TOPO
+===================================================== */
+
+.top-button{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:43px;
+    height:43px;
+    border:0;
+    border-radius:12px;
+    background:var(--red);
+    color:#fff;
+    box-shadow:
+        0 8px 20px
+        rgba(229,9,20,.20);
+    display:none;
+    z-index:100;
+}
+
+.top-button.show{
+    display:block;
+}
+
+/* =====================================================
+TABLET
+===================================================== */
+
+@media(max-width:1050px){
+
+    .products-grid{
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+    }
+
+    .desktop-nav{
+        display:none;
+    }
+
+    .mobile-menu-button{
+        display:block;
+    }
+
+}
+
+/* =====================================================
+TABLET PEQUENO
+===================================================== */
+
+@media(max-width:800px){
+
+    .products-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+        gap:13px;
+    }
+
+    .quick-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+/* =====================================================
+CELULAR
+===================================================== */
+
+@media(max-width:600px){
+
+    body{
+        padding-top:65px;
+    }
+
+    .header{
+        height:65px;
+    }
+
+    .header-container{
+        padding:0 14px;
+        gap:10px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .header-search{
+        display:none;
+    }
+
+    .hero-container{
+        padding:45px 15px 50px;
+    }
+
+    .hero h1{
+        font-size:34px;
+        letter-spacing:-1.6px;
+    }
+
+    .hero p{
+        font-size:12px;
+    }
+
+    .hero-search{
+        height:52px;
+    }
+
+    .hero-search button{
+        padding:0 14px;
+    }
+
+    .quick-section{
+        padding:0 14px;
+        margin-top:-20px;
+    }
+
+    .quick-grid{
+        gap:9px;
+    }
+
+    .quick-card{
+        padding:12px;
+    }
+
+    .quick-card span{
+        display:none;
+    }
+
+    .quick-card strong{
+        font-size:10px;
+    }
+
+    .quick-icon{
+        width:37px;
+        height:37px;
+        font-size:14px;
+    }
+
+    .container{
+        padding:28px 14px 55px;
+    }
+
+    .section-title h2{
+        font-size:20px;
+    }
+
+    .filters{
+        overflow-x:auto;
+        flex-wrap:nowrap;
+        scrollbar-width:none;
+    }
+
+    .filters::-webkit-scrollbar{
+        display:none;
+    }
+
+    .filter{
+        flex-shrink:0;
+    }
+
+    .products-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+        gap:10px;
+    }
+
+    .product-image{
+        height:165px;
+        padding:11px;
+    }
+
+    .store-logo-card{
+        top:10px;
+        left:10px;
+        width:36px;
+        height:36px;
+        padding:4px;
+    }
+
+    .favorite{
+        top:10px;
+        right:10px;
+        width:34px;
+        height:34px;
+    }
+
+    .discount{
+        top:13px;
+        left:53px;
+        font-size:8px;
+        padding:5px 6px;
+    }
+
+    .product-info{
+        padding:11px;
+    }
+
+    .product-meta{
+        justify-content:center;
+        min-height:20px;
+        margin-bottom:7px;
+        text-align:center;
+    }
+
+    .posted-time{
+        justify-content:center;
+        font-size:8px;
+        width:100%;
+        text-align:center;
+    }
+
+    .posted-time i{
+        font-size:8px;
+    }
+
+    .product-name{
+        font-size:11px;
+        min-height:34px;
+    }
+
+    .price{
+        font-size:18px;
+    }
+
+    .old-price{
+        font-size:9px;
+    }
+
+    .installment{
+        font-size:8px;
+    }
+
+    .btn-cupom{
+        min-height:38px;
+        font-size:9px;
+    }
+
+    .coupon-box{
+        padding:7px;
+        gap:5px;
+    }
+
+    .coupon-code{
+        font-size:9px;
+        padding:7px 4px;
+    }
+
+    .btn-copy{
+        font-size:8px;
+        padding:8px 7px;
+    }
+
+    .btn-close-coupon{
+        font-size:8px;
+        padding:8px 6px;
+    }
+
+    .btn-acessar{
+        min-height:40px;
+        font-size:9px;
+    }
+
+    .offer-closed-badge{
+        font-size:9px;
+        padding:8px 10px;
+        gap:6px;
+    }
+
+    .offer-closed-badge i{
+        font-size:11px;
+    }
+
+    .footer-grid{
+        grid-template-columns:
+            1fr 1fr;
+        gap:25px 15px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+/* =====================================================
+CELULAR PEQUENO
+===================================================== */
+
+@media(max-width:380px){
+
+    .products-grid{
+        gap:8px;
+    }
+
+    .product-image{
+        height:145px;
+    }
+
+    .product-info{
+        padding:9px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .store-logo-card{
+        width:33px;
+        height:33px;
+    }
+
+    .favorite{
+        width:31px;
+        height:31px;
+    }
+
+    .posted-time{
+        font-size:7px;
+    }
+
+    .coupon-code{
+        font-size:8px;
+    }
+
+    .offer-closed-badge{
+        font-size:8px;
+        padding:7px 8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="header-container">
+
+<a href="index.html" class="logo">
+
+<span class="logo-main">
+PROMO
+</span>
+
+<span class="logo-flash">
+FLASH
+</span>
+
+<span class="logo-icon">
+</span>
+
+</a>
+
+<div class="header-search">
+
+<i class="fas fa-search"></i>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Buscar produto..."
+autocomplete="off">
+
+</div>
+
+<nav class="desktop-nav">
+
+<a href="ofertas.html">
+Ofertas
+</a>
+
+<a href="categorias.html">
+Categorias
+</a>
+
+<a
+href="favoritos.html"
+onclick="mostrarFavoritos()">
+
+<i class="far fa-heart"></i>
+
+Favoritos
+
+</a>
+
+<a href="contato.html">
+
+<i class="fas fa-headset"></i>
+
+Contato
+
+</a>
+
+</nav>
+
+<button
+class="mobile-menu-button"
+onclick="abrirMenu()"
+aria-label="Abrir menu">
+
+<i class="fas fa-bars"></i>
+
+</button>
+
+</div>
+
+</header>
+
+<div
+class="menu-overlay"
+id="menuOverlay"
+onclick="fecharMenu()">
+</div>
+
+<aside
+class="mobile-menu"
+id="mobileMenu">
+
+<div class="mobile-menu-header">
+
+<div class="mobile-menu-logo">
+
+<span class="logo-main">
+PROMO
+</span>
+
+<span class="logo-flash">
+FLASH
+</span>
+
+</div>
+
+<button
+class="mobile-menu-close"
+onclick="fecharMenu()">
+
+<i class="fas fa-times"></i>
+
+</button>
+
+</div>
+
+<a
+href="index.html"
+class="mobile-link"
+onclick="fecharMenu()">
+
+<i class="fas fa-home"></i>
+
+Início
+
+</a>
+
+<a
+href="index.html"
+class="mobile-link"
+onclick="fecharMenu()">
+
+<i class="fas fa-fire"></i>
+
+Ofertas
+
+</a>
+
+<a
+href="contato.html"
+class="mobile-link"
+onclick="fecharMenu()">
+
+<i class="fas fa-headset"></i>
+
+Contato
+
+</a>
+
+</aside>
+
+<section class="hero">
+
+<div class="hero-container">
+
+<div class="hero-badge">
+
+<i class="fas fa-bolt"></i>
+
+OFERTAS ATUALIZADAS TODOS OS DIAS
+
+</div>
+
+<h1>
+
+As melhores ofertas
+
+<span>
+da internet
+</span>
+
+</h1>
+
+<p>
+
+Encontre produtos incríveis,
+preços baixos e oportunidades
+selecionadas para você.
+
+</p>
+
+<div class="hero-search">
+
+<input
+type="text"
+id="heroSearch"
+placeholder="O que você está procurando?">
+
+<button onclick="buscarHero()">
+
+<i class="fas fa-search"></i>
+
+Buscar
+
+</button>
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+</a>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+<div class="filters">
+
+<select
+class="filter"
+id="sortFilter"
+onchange="aplicarFiltros()">
+
+<option value="newest">
+Mais recentes
+</option>
+
+<option value="lowest">
+Menor preço
+</option>
+
+<option value="highest">
+Maior preço
+</option>
+
+<option value="discount">
+Maior desconto
+</option>
+
+</select>
+
+<select
+class="filter"
+id="priceFilter"
+onchange="aplicarFiltros()">
+
+<option value="all">
+Qualquer preço
+</option>
+
+<option value="0-50">
+Até R$ 50
+</option>
+
+<option value="50-100">
+R$ 50 - R$ 100
+</option>
+
+<option value="100-300">
+R$ 100 - R$ 300
+</option>
+
+<option value="300-999999">
+Acima de R$ 300
+</option>
+
+</select>
+
+<select
+class="filter"
+id="storeFilter"
+onchange="aplicarFiltros()">
+
+</select>
+
+</div>
+
+<div
+class="products-grid"
+id="productsGrid">
+
+<div class="loading">
+
+<div class="spinner"></div>
+
+</div>
+
+</div>
+
+</main>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<h2>
+
+<span class="logo-flash">
+PROMOFLASH
+</span>
+
+</h2>
+
+<p>
+
+As melhores ofertas da internet
+reunidas em um só lugar.
+Encontre promoções,
+descontos e produtos
+incríveis todos os dias.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+Navegação
+</h3>
+
+<a href="index.html">
+Início
+</a>
+
+<a href="#ofertas">
+Ofertas
+</a>
+
+<a href="#categorias">
+Categorias
+</a>
+
+<a
+href="#ofertas"
+onclick="mostrarFavoritos()">
+
+Favoritos
+
+</a>
+
+</div>
+
+<div>
+
+<h3>
+PromoFlash
+</h3>
+
+<a href="#">
+Sobre nós
+</a>
+
+<a href="#">
+Termos de uso
+</a>
+
+<a href="#">
+Privacidade
+</a>
+
+<a href="contato.html">
+Contato
+</a>
+
+<a href="admin.html">
+Área Vip
+</a>
+
+</div>
+
+<div>
+
+<h3>
+Redes sociais
+</h3>
+
+<a href="#">
+<i class="fab fa-instagram"></i>
+Instagram
+</a>
+
+<a href="#">
+<i class="fab fa-whatsapp"></i>
+WhatsApp
+</a>
+
+<a href="#">
+<i class="fab fa-telegram"></i>
+Telegram
+</a>
+
+<a href="#">
+Suporte
+</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<span>
+© 2025 PromoFlash. Todos os direitos reservados.
+</span>
+
+<span>
+Feito para encontrar ofertas
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+<div
+class="toast"
+id="toast">
+
+Cupom copiado!
+
+</div>
+
+<button
+class="top-button"
+id="topButton"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+<i class="fas fa-arrow-up"></i>
+
+</button>
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    query,
+    orderBy
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* =====================================================
+CONFIG FIREBASE
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyBKBfq3LVRX9CWchlx4Xl-1k03NxEjXhMU",
+
+    authDomain:
+    "garimpatudo-c1d44.firebaseapp.com",
+
+    databaseURL:
+    "https://garimpatudo-c1d44-default-rtdb.firebaseio.com",
+
+    projectId:
+    "garimpatudo-c1d44",
+
+    storageBucket:
+    "garimpatudo-c1d44.firebasestorage.app",
+
+    messagingSenderId:
+    "1095541536253",
+
+    appId:
+    "1:1095541536253:web:3ca5da84d0fff9fc9c1594",
+
+    measurementId:
+    "G-NCMPX8LH01"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+/* =====================================================
+VARIÁVEIS
+===================================================== */
+
+let produtos = [];
+
+let categoriaAtual =
+"Todas";
+
+let favoritos =
+JSON.parse(
+localStorage.getItem(
+"promoflash_favoritos"
+) || "[]"
+);
+
+let mostrandoFavoritos =
+false;
+
+/* =====================================================
+TIMESTAMP
+===================================================== */
+
+function converterTimestamp(timestamp){
+
+    if(!timestamp){
+        return 0;
+    }
+
+    if(
+        typeof timestamp.toMillis ===
+        "function"
+    ){
+        return timestamp.toMillis();
+    }
+
+    if(
+        timestamp.seconds !==
+        undefined
+    ){
+
+        return (
+            Number(timestamp.seconds) * 1000
+        ) +
+        Math.floor(
+            Number(timestamp.nanoseconds || 0) / 1000000
+        );
+
+    }
+
+    if(
+        timestamp._seconds !==
+        undefined
+    ){
+
+        return (
+            Number(timestamp._seconds) * 1000
+        ) +
+        Math.floor(
+            Number(timestamp._nanoseconds || 0) / 1000000
+        );
+
+    }
+
+    if(
+        timestamp instanceof Date
+    ){
+
+        return timestamp.getTime();
+
+    }
+
+    if(
+        typeof timestamp === "number"
+    ){
+
+        /*
+        Aceita tanto milissegundos
+        quanto segundos.
+        */
+
+        return timestamp < 100000000000
+            ? timestamp * 1000
+            : timestamp;
+
+    }
+
+    const data =
+    new Date(timestamp);
+
+    return isNaN(data.getTime())
+        ? 0
+        : data.getTime();
+
+}
+
+/* =====================================================
+TEMPO DE POSTAGEM
+ATUALIZAÇÃO PRECISA
+===================================================== */
+
+function tempoPostagem(timestamp){
+
+    const tempo =
+    converterTimestamp(timestamp);
+
+    if(!tempo){
+
+        return "Postado agora";
+
+    }
+
+    const agora =
+    Date.now();
+
+    let segundos =
+    Math.floor(
+        (agora - tempo) / 1000
+    );
+
+    if(segundos < 0){
+
+        segundos = 0;
+
+    }
+
+    if(segundos < 60){
+
+        return `Postado há ${segundos}s`;
+
+    }
+
+    const minutos =
+    Math.floor(
+        segundos / 60
+    );
+
+    if(minutos < 60){
+
+        return `Postado há ${minutos} min`;
+
+    }
+
+    const horas =
+    Math.floor(
+        minutos / 60
+    );
+
+    if(horas < 24){
+
+        return `Postado há ${horas}h`;
+
+    }
+
+    const dias =
+    Math.floor(
+        horas / 24
+    );
+
+    if(dias < 30){
+
+        return `Postado há ${dias} dia${dias === 1 ? "" : "s"}`;
+
+    }
+
+    const meses =
+    Math.floor(
+        dias / 30
+    );
+
+    if(meses < 12){
+
+        return `Postado há ${meses} ${meses === 1 ? "mês" : "meses"}`;
+
+    }
+
+    const anos =
+    Math.floor(
+        meses / 12
+    );
+
+    return `Postado há ${anos} ${anos === 1 ? "ano" : "anos"}`;
+
+}
+
+/* =====================================================
+ATUALIZAR TEMPOS
+===================================================== */
+
+function atualizarTempos(){
+
+    document
+    .querySelectorAll(
+        "[data-posted-time]"
+    )
+    .forEach(
+        elemento => {
+
+            const timestamp =
+            Number(
+                elemento.dataset.timestamp
+            );
+
+            const texto =
+            elemento.querySelector(
+                "span"
+            );
+
+            if(texto){
+
+                texto.textContent =
+                tempoPostagem(
+                    timestamp
+                );
+
+            }
+
+        }
+    );
+
+}
+
+/*
+ATUALIZA A CADA 1 SEGUNDO
+*/
+
+setInterval(
+    atualizarTempos,
+    1000
+);
+
+/* =====================================================
+PREÇO
+===================================================== */
+
+function obterPreco(produto){
+
+    let preco =
+    produto.preco;
+
+    if(
+        preco === undefined ||
+        preco === null ||
+        preco === ""
+    ){
+
+        return 0;
+
+    }
+
+    if(
+        typeof preco === "number"
+    ){
+
+        return preco;
+
+    }
+
+    let texto =
+    String(preco)
+    .trim()
+    .replace(/R\$/gi,"")
+    .replace(/\s/g,"");
+
+    if(texto.includes(",")){
+
+        texto =
+        texto
+        .replace(/\./g,"")
+        .replace(",", ".");
+
+    }
+
+    const numero =
+    parseFloat(texto);
+
+    return isNaN(numero)
+        ? 0
+        : numero;
+
+}
+
+/* =====================================================
+PREÇO ANTIGO
+===================================================== */
+
+function obterPrecoAntigo(produto){
+
+    let preco =
+    produto.precoAntigo;
+
+    if(
+        preco === undefined ||
+        preco === null ||
+        preco === ""
+    ){
+
+        return 0;
+
+    }
+
+    if(
+        typeof preco === "number"
+    ){
+
+        return preco;
+
+    }
+
+    let texto =
+    String(preco)
+    .trim()
+    .replace(/R\$/gi,"")
+    .replace(/\s/g,"");
+
+    if(texto.includes(",")){
+
+        texto =
+        texto
+        .replace(/\./g,"")
+        .replace(",", ".");
+
+    }
+
+    const numero =
+    parseFloat(texto);
+
+    return isNaN(numero)
+        ? 0
+        : numero;
+
+}
+
+/* =====================================================
+FORMATAR PREÇO
+===================================================== */
+
+function formatarPreco(valor){
+
+    return new Intl.NumberFormat(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
+    ).format(valor);
+
+}
+
+/* =====================================================
+DESCONTO
+===================================================== */
+
+function calcularDesconto(produto){
+
+    const atual =
+    obterPreco(produto);
+
+    const antigo =
+    obterPrecoAntigo(produto);
+
+    if(
+        antigo > atual &&
+        atual > 0
+    ){
+
+        return Math.round(
+            (
+                (antigo - atual)
+                /
+                antigo
+            ) * 100
+        );
+
+    }
+
+    return 0;
+
+}
+
+/* =====================================================
+ESCAPE
+===================================================== */
+
+function escapeHTML(valor){
+
+    if(
+        valor === null ||
+        valor === undefined
+    ){
+
+        return "";
+
+    }
+
+    return String(valor)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+/* =====================================================
+LOJA
+===================================================== */
+
+function obterLoja(produto){
+
+    return (
+        produto.lojaNome ||
+        produto.loja ||
+        produto.store ||
+        ""
+    );
+
+}
+
+/* =====================================================
+LOGO
+===================================================== */
+
+function obterLogo(produto){
+
+    return (
+        produto.logoLoja ||
+        produto.logo ||
+        produto.logoLojaUrl ||
+        ""
+    );
+
+}
+
+/* =====================================================
+IMAGEM
+===================================================== */
+
+function obterImagem(produto){
+
+    return (
+        produto.imagem ||
+        produto.image ||
+        produto.foto ||
+        "https://via.placeholder.com/500x500?text=PromoFlash"
+    );
+
+}
+
+/* =====================================================
+CATEGORIA
+===================================================== */
+
+function obterCategoria(produto){
+
+    return (
+        produto.categoria ||
+        produto.category ||
+        "Outros"
+    );
+
+}
+
+/* =====================================================
+CUPOM
+===================================================== */
+
+function obterCupom(produto){
+
+    return String(
+        produto.cupom ||
+        produto.coupon ||
+        produto.codigoCupom ||
+        ""
+    ).trim();
+
+}
+
+/* =====================================================
+OFERTA ENCERRADA
+===================================================== */
+
+function ofertaEncerrada(produto){
+
+    const status =
+    String(
+        produto.status ||
+        ""
+    )
+    .toLowerCase()
+    .trim();
+
+    return (
+        status === "encerrado" ||
+        status === "encerrada" ||
+        produto.encerrado === true
+    );
+
+}
+
+/* =====================================================
+FILTRO LOJAS
+===================================================== */
+
+function criarFiltroLojas(){
+
+    const select =
+    document.getElementById(
+        "storeFilter"
+    );
+
+    select.innerHTML = `
+        <option value="all">
+            Todas as lojas
+        </option>
+    `;
+
+    const lojas =
+    new Set();
+
+    produtos.forEach(
+        produto => {
+
+            const loja =
+            obterLoja(produto);
+
+            if(loja){
+
+                lojas.add(loja);
+
+            }
+
+        }
+    );
+
+    [...lojas]
+    .sort(
+        (a,b) =>
+        a.localeCompare(b)
+    )
+    .forEach(
+        loja => {
+
+            const option =
+            document.createElement(
+                "option"
+            );
+
+            option.value =
+            loja;
+
+            option.textContent =
+            loja;
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
+/* =====================================================
+CARREGAR PRODUTOS
+===================================================== */
+
+async function carregarProdutos(){
+
+    const grid =
+    document.getElementById(
+        "productsGrid"
+    );
+
+    try{
+
+        const produtosRef =
+        collection(
+            db,
+            "produtos"
+        );
+
+        let snapshot;
+
+        try{
+
+            const q =
+            query(
+                produtosRef,
+                orderBy(
+                    "timestamp",
+                    "desc"
+                )
+            );
+
+            snapshot =
+            await getDocs(q);
+
+        }
+        catch(error){
+
+            console.warn(
+                "Ordenação Firebase indisponível.",
+                error
+            );
+
+            snapshot =
+            await getDocs(
+                produtosRef
+            );
+
+        }
+
+        produtos = [];
+
+        snapshot.forEach(
+            docSnap => {
+
+                produtos.push({
+
+                    id:
+                    docSnap.id,
+
+                    ...docSnap.data()
+
+                });
+
+            }
+        );
+
+        produtos.sort(
+            (a,b) =>
+            converterTimestamp(
+                b.timestamp
+            )
+            -
+            converterTimestamp(
+                a.timestamp
+            )
+        );
+
+        criarFiltroLojas();
+
+        renderizarProdutos();
+
+    }
+    catch(error){
+
+        console.error(
+            "Erro Firebase:",
+            error
+        );
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                <i class="fas fa-triangle-exclamation"></i>
+
+                <h3>
+                    Não foi possível carregar as ofertas
+                </h3>
+
+                <p>
+                    Verifique a conexão com o Firebase.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+/* =====================================================
+RENDERIZAR
+===================================================== */
+
+function renderizarProdutos(){
+
+    let lista =
+    [...produtos];
+
+    /* =====================================================
+    OCULTAR OFERTAS ENCERRADAS DA PÁGINA INICIAL
+    ===================================================== */
+
+    lista =
+    lista.filter(
+        produto =>
+        !ofertaEncerrada(produto)
+    );
+
+    const busca =
+    document
+    .getElementById(
+        "searchInput"
+    )
+    .value
+    .toLowerCase()
+    .trim();
+
+    const precoFiltro =
+    document
+    .getElementById(
+        "priceFilter"
+    )
+    .value;
+
+    const lojaFiltro =
+    document
+    .getElementById(
+        "storeFilter"
+    )
+    .value;
+
+    const ordenacao =
+    document
+    .getElementById(
+        "sortFilter"
+    )
+    .value;
+
+    if(busca){
+
+        lista =
+        lista.filter(
+            produto => {
+
+                const nome =
+                String(
+                    produto.nome || ""
+                ).toLowerCase();
+
+                const loja =
+                obterLoja(
+                    produto
+                ).toLowerCase();
+
+                const categoria =
+                obterCategoria(
+                    produto
+                ).toLowerCase();
+
+                return (
+                    nome.includes(busca) ||
+                    loja.includes(busca) ||
+                    categoria.includes(busca)
+                );
+
+            }
+        );
+
+    }
+
+    if(
+        categoriaAtual !==
+        "Todas"
+    ){
+
+        lista =
+        lista.filter(
+            produto =>
+
+            obterCategoria(
+                produto
+            ).toLowerCase()
+            ===
+            categoriaAtual.toLowerCase()
+        );
+
+    }
+
+    if(mostrandoFavoritos){
+
+        lista =
+        lista.filter(
+            produto =>
+            favoritos.includes(
+                produto.id
+            )
+        );
+
+    }
+
+    if(
+        lojaFiltro !==
+        "all"
+    ){
+
+        lista =
+        lista.filter(
+            produto =>
+            obterLoja(
+                produto
+            ) === lojaFiltro
+        );
+
+    }
+
+    if(
+        precoFiltro !==
+        "all"
+    ){
+
+        const partes =
+        precoFiltro.split("-");
+
+        const minimo =
+        Number(partes[0]);
+
+        const maximo =
+        Number(partes[1]);
+
+        lista =
+        lista.filter(
+            produto => {
+
+                const preco =
+                obterPreco(
+                    produto
+                );
+
+                return (
+                    preco >= minimo &&
+                    preco <= maximo
+                );
+
+            }
+        );
+
+    }
+
+    if(
+        ordenacao ===
+        "lowest"
+    ){
+
+        lista.sort(
+            (a,b) =>
+            obterPreco(a)
+            -
+            obterPreco(b)
+        );
+
+    }
+
+    if(
+        ordenacao ===
+        "highest"
+    ){
+
+        lista.sort(
+            (a,b) =>
+            obterPreco(b)
+            -
+            obterPreco(a)
+        );
+
+    }
+
+    if(
+        ordenacao ===
+        "discount"
+    ){
+
+        lista.sort(
+            (a,b) =>
+            calcularDesconto(b)
+            -
+            calcularDesconto(a)
+        );
+
+    }
+
+    if(
+        ordenacao ===
+        "newest"
+    ){
+
+        lista.sort(
+            (a,b) =>
+            converterTimestamp(
+                b.timestamp
+            )
+            -
+            converterTimestamp(
+                a.timestamp
+            )
+        );
+
+    }
+
+    montarCards(lista);
+
+}
+
+/* =====================================================
+MONTAR CARDS
+===================================================== */
+
+function montarCards(lista){
+
+    const grid =
+    document.getElementById(
+        "productsGrid"
+    );
+
+    if(lista.length === 0){
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                <i class="fas fa-search"></i>
+
+                <h3>
+                    Nenhuma oferta encontrada
+                </h3>
+
+                <p>
+                    Tente mudar os filtros ou pesquisar outro produto.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+    grid.innerHTML =
+
+    lista.map(
+        produto => {
+
+            const id =
+            escapeHTML(
+                produto.id
+            );
+
+            const nome =
+            escapeHTML(
+                produto.nome ||
+                "Produto"
+            );
+
+            const imagem =
+            escapeHTML(
+                obterImagem(
+                    produto
+                )
+            );
+
+            const logo =
+            escapeHTML(
+                obterLogo(
+                    produto
+                )
+            );
+
+            const preco =
+            obterPreco(
+                produto
+            );
+
+            const precoAntigo =
+            obterPrecoAntigo(
+                produto
+            );
+
+            const desconto =
+            calcularDesconto(
+                produto
+            );
+
+            const parcelamento =
+            escapeHTML(
+                produto.parcelamento ||
+                ""
+            );
+
+            const favorito =
+            favoritos.includes(
+                produto.id
+            );
+
+            const cupom =
+            obterCupom(
+                produto
+            );
+
+            const temCupom =
+            cupom.length > 0;
+
+            const link =
+            escapeHTML(
+                produto.link ||
+                "#"
+            );
+
+            const timestamp =
+            converterTimestamp(
+                produto.timestamp
+            );
+
+            const encerrada =
+            ofertaEncerrada(
+                produto
+            );
+
+            return `
+
+                <article class="product-card">
+
+                    <div class="product-image">
+
+                        ${
+                            desconto > 0
+                            ?
+                            `
+                            <span class="discount">
+                                -${desconto}%
+                            </span>
+                            `
+                            :
+                            ""
+                        }
+
+                        ${
+                            logo
+                            ?
+                            `
+                            <img
+                                src="${logo}"
+                                class="store-logo-card"
+                                alt="Logo da loja"
+                                loading="lazy"
+                                onerror="
+                                    this.style.display='none';
+                                "
+                            >
+                            `
+                            :
+                            ""
+                        }
+
+                        <button
+                            class="favorite ${
+                                favorito
+                                ? "active"
+                                : ""
+                            }"
+                            onclick="toggleFavorito('${id}')"
+                            aria-label="Favoritar">
+
+                            <i class="${
+                                favorito
+                                ? "fas"
+                                : "far"
+                            } fa-heart"></i>
+
+                        </button>
+
+                        <img
+                            src="${imagem}"
+                            alt="${nome}"
+                            loading="lazy"
+                            onerror="
+                                this.onerror=null;
+                                this.src='https://via.placeholder.com/500x500?text=PromoFlash';
+                            "
+                        >
+
+                        ${
+                            encerrada
+                            ?
+                            `
+                            <div class="offer-closed-overlay">
+
+                                <div class="offer-closed-badge">
+
+                                    <i class="fas fa-circle-xmark"></i>
+
+                                    OFERTA ENCERRADA
+
+                                </div>
+
+                            </div>
+                            `
+                            :
+                            ""
+                        }
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-meta">
+
+                            <div
+                                class="posted-time"
+                                data-posted-time
+                                data-timestamp="${timestamp}">
+
+                                <i class="fas fa-clock"></i>
+
+                                <span>
+                                    ${tempoPostagem(timestamp)}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="product-name">
+
+                            ${nome}
+
+                        </div>
+
+                        <div class="product-price">
+
+                            ${
+                                precoAntigo > preco
+                                ?
+                                `
+                                <div class="old-price">
+
+                                    ${formatarPreco(
+                                        precoAntigo
+                                    )}
+
+                                </div>
+                                `
+                                :
+                                ""
+                            }
+
+                            <div class="price">
+
+                                ${
+                                    preco > 0
+                                    ?
+                                    formatarPreco(
+                                        preco
+                                    )
+                                    :
+                                    "Ver oferta"
+                                }
+
+                            </div>
+
+                            ${
+                                parcelamento
+                                ?
+                                `
+                                <div class="installment">
+                                    ${parcelamento}
+                                </div>
+                                `
+                                :
+                                ""
+                            }
+
+                        </div>
+
+                        ${
+                            temCupom
+                            ?
+                            `
+                            <div class="coupon-area">
+
+                                <button
+                                    class="btn-cupom"
+                                    id="show-coupon-${id}"
+                                    onclick="mostrarCupom('${id}')">
+
+                                    <i class="fas fa-ticket"></i>
+
+                                    MOSTRAR CUPOM
+
+                                </button>
+
+                                <div
+                                    class="coupon-box"
+                                    id="coupon-${id}">
+
+                                    <span
+                                        class="coupon-code"
+                                        id="coupon-code-${id}">
+                                    </span>
+
+                                    <button
+                                        class="btn-copy"
+                                        onclick="copiarCupom('${id}')">
+
+                                        <i class="fas fa-copy"></i>
+
+                                        COPIAR
+
+                                    </button>
+
+                                    <button
+                                        class="btn-close-coupon"
+                                        onclick="fecharCupom('${id}')">
+
+                                        <i class="fas fa-times"></i>
+
+                                        FECHAR
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+                            `
+                            :
+                            ""
+                        }
+
+                        ${
+                            encerrada
+                            ?
+                            `
+                            <a
+                                href="${link}"
+                                class="btn-acessar encerrada"
+                                onclick="return ofertaBloqueada(event)">
+
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+
+                                ACESSAR OFERTA
+
+                            </a>
+                            `
+                            :
+                            `
+                            <a
+                                href="${link}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-acessar"
+                                onclick="mostrarToast('Abrindo oferta...')">
+
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+
+                                ACESSAR OFERTA
+
+                            </a>
+                            `
+                        }
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }
+    ).join("");
+
+}
+
+/* =====================================================
+BLOQUEAR OFERTA ENCERRADA
+===================================================== */
+
+window.ofertaBloqueada =
+function(event){
+
+    event.preventDefault();
+
+    mostrarToast(
+        "🔴 Esta oferta foi encerrada"
+    );
+
+    return false;
+
+};
+
+/* =====================================================
+MOSTRAR CUPOM
+===================================================== */
+
+window.mostrarCupom =
+function(id){
+
+    const produto =
+    produtos.find(
+        item =>
+        item.id === id
+    );
+
+    if(!produto){
+
+        mostrarToast(
+            "Cupom não encontrado"
+        );
+
+        return;
+
+    }
+
+    const cupom =
+    obterCupom(
+        produto
+    );
+
+    if(!cupom){
+
+        mostrarToast(
+            "Este produto não possui cupom"
+        );
+
+        return;
+
+    }
+
+    const box =
+    document.getElementById(
+        "coupon-" + id
+    );
+
+    const code =
+    document.getElementById(
+        "coupon-code-" + id
+    );
+
+    const botao =
+    document.getElementById(
+        "show-coupon-" + id
+    );
+
+    if(!box || !code){
+
+        return;
+
+    }
+
+    code.textContent =
+    cupom;
+
+    box.classList.add(
+        "show"
+    );
+
+    if(botao){
+
+        botao.style.display =
+        "none";
+
+    }
+
+};
+
+/* =====================================================
+FECHAR CUPOM
+===================================================== */
+
+window.fecharCupom =
+function(id){
+
+    const box =
+    document.getElementById(
+        "coupon-" + id
+    );
+
+    const botao =
+    document.getElementById(
+        "show-coupon-" + id
+    );
+
+    if(box){
+
+        box.classList.remove(
+            "show"
+        );
+
+    }
+
+    if(botao){
+
+        botao.style.display =
+        "flex";
+
+    }
+
+};
+
+/* =====================================================
+COPIAR CUPOM
+===================================================== */
+
+window.copiarCupom =
+async function(id){
+
+    const produto =
+    produtos.find(
+        item =>
+        item.id === id
+    );
+
+    if(!produto){
+
+        mostrarToast(
+            "Cupom não encontrado"
+        );
+
+        return;
+
+    }
+
+    const cupom =
+    obterCupom(
+        produto
+    );
+
+    if(!cupom){
+
+        mostrarToast(
+            "Este produto não possui cupom"
+        );
+
+        return;
+
+    }
+
+    try{
+
+        await navigator.clipboard.writeText(
+            cupom
+        );
+
+        mostrarToast(
+            "✓ Cupom copiado!"
+        );
+
+    }
+    catch(error){
+
+        const textarea =
+        document.createElement(
+            "textarea"
+        );
+
+        textarea.value =
+        cupom;
+
+        textarea.style.position =
+        "fixed";
+
+        textarea.style.opacity =
+        "0";
+
+        document.body.appendChild(
+            textarea
+        );
+
+        textarea.focus();
+
+        textarea.select();
+
+        document.execCommand(
+            "copy"
+        );
+
+        textarea.remove();
+
+        mostrarToast(
+            "✓ Cupom copiado!"
+        );
+
+    }
+
+};
+
+/* =====================================================
+FAVORITO
+===================================================== */
+
+window.toggleFavorito =
+function(id){
+
+    const index =
+    favoritos.indexOf(id);
+
+    if(index === -1){
+
+        favoritos.push(id);
+
+        mostrarToast(
+            "❤️ Adicionado aos favoritos"
+        );
+
+    }
+    else{
+
+        favoritos.splice(
+            index,
+            1
+        );
+
+        mostrarToast(
+            "Removido dos favoritos"
+        );
+
+    }
+
+    localStorage.setItem(
+        "promoflash_favoritos",
+        JSON.stringify(
+            favoritos
+        )
+    );
+
+    renderizarProdutos();
+
+};
+
+/* =====================================================
+MOSTRAR FAVORITOS
+===================================================== */
+
+window.mostrarFavoritos =
+function(){
+
+    mostrandoFavoritos =
+    !mostrandoFavoritos;
+
+    const titulo =
+    document.querySelector(
+        ".section-title h2"
+    );
+
+    if(mostrandoFavoritos){
+
+        titulo.textContent =
+        "❤️ Meus favoritos";
+
+    }
+    else{
+
+        titulo.textContent =
+        "Ofertas em destaque";
+
+    }
+
+    renderizarProdutos();
+
+    document
+    .getElementById(
+        "ofertas"
+    )
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+};
+
+/* =====================================================
+CATEGORIA
+===================================================== */
+
+window.selecionarCategoria =
+function(
+    categoria,
+    botao
+){
+
+    categoriaAtual =
+    categoria;
+
+    document
+    .querySelectorAll(
+        ".category"
+    )
+    .forEach(
+        btn => {
+
+            btn.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+    botao.classList.add(
+        "active"
+    );
+
+    mostrandoFavoritos =
+    false;
+
+    renderizarProdutos();
+
+};
+
+/* =====================================================
+FILTROS
+===================================================== */
+
+window.aplicarFiltros =
+function(){
+
+    renderizarProdutos();
+
+};
+
+/* =====================================================
+BUSCA HERO
+===================================================== */
+
+window.buscarHero =
+function(){
+
+    const valor =
+    document
+    .getElementById(
+        "heroSearch"
+    )
+    .value;
+
+    document
+    .getElementById(
+        "searchInput"
+    )
+    .value =
+    valor;
+
+    mostrandoFavoritos =
+    false;
+
+    renderizarProdutos();
+
+    document
+    .getElementById(
+        "ofertas"
+    )
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+};
+
+/* =====================================================
+MENU
+===================================================== */
+
+window.abrirMenu =
+function(){
+
+    document
+    .getElementById(
+        "mobileMenu"
+    )
+    .classList.add(
+        "active"
+    );
+
+    document
+    .getElementById(
+        "menuOverlay"
+    )
+    .classList.add(
+        "active"
+    );
+
+    document.body.style.overflow =
+    "hidden";
+
+};
+
+window.fecharMenu =
+function(){
+
+    document
+    .getElementById(
+        "mobileMenu"
+    )
+    .classList.remove(
+        "active"
+    );
+
+    document
+    .getElementById(
+        "menuOverlay"
+    )
+    .classList.remove(
+        "active"
+    );
+
+    document.body.style.overflow =
+    "";
+
+};
+
+/* =====================================================
+TOAST
+===================================================== */
+
+window.mostrarToast =
+function(mensagem){
+
+    const toast =
+    document.getElementById(
+        "toast"
+    );
+
+    toast.textContent =
+    mensagem;
+
+    toast.classList.add(
+        "show"
+    );
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+    window.toastTimer =
+    setTimeout(
+        () => {
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },
+        2500
+    );
+
+};
+
+/* =====================================================
+BUSCA
+===================================================== */
+
+document
+.getElementById(
+    "searchInput"
+)
+.addEventListener(
+    "input",
+    () => {
+
+        mostrandoFavoritos =
+        false;
+
+        renderizarProdutos();
+
+    }
+);
+
+/* =====================================================
+ENTER
+===================================================== */
+
+document
+.getElementById(
+    "heroSearch"
+)
+.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Enter"
+        ){
+
+            buscarHero();
+
+        }
+
+    }
+);
+
+/* =====================================================
+BOTÃO TOPO
+===================================================== */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const button =
+        document.getElementById(
+            "topButton"
+        );
+
+        if(
+            window.scrollY > 400
+        ){
+
+            button.classList.add(
+                "show"
+            );
+
+        }
+        else{
+
+            button.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+/* =====================================================
+INICIAR
+===================================================== */
+
+carregarProdutos();
+
+</script>
+
+</body>
+
+</html>

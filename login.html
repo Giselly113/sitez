@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - PromoFlash</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#005bea,#0b090d);
+  padding:15px;
+}
+
+.container{
+  width:100%;
+  max-width:400px;
+  background:rgba(255,255,255,.08);
+  border-radius:20px;
+  padding:30px 25px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  text-align:center;
+  color:#fff;
+}
+
+.logo{
+  font-size:32px;
+  font-weight:800;
+  color:#ffd43b;
+  margin-bottom:15px;
+}
+
+h2{
+  margin-bottom:20px;
+}
+
+.input-box{
+  position:relative;
+  margin-bottom:18px;
+}
+
+.input-box input{
+  width:100%;
+  padding:12px 42px 12px 15px;
+  border:none;
+  border-radius:12px;
+  outline:none;
+  background:rgba(255,255,255,.1);
+  color:#fff;
+}
+
+.input-box input::placeholder{
+  color:rgba(255,255,255,.7);
+}
+
+.input-box i{
+  position:absolute;
+  right:15px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#ffd43b;
+}
+
+button{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(90deg,#00aaff,#005bea);
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:.95;
+}
+
+.toggle{
+  margin-top:15px;
+  font-size:14px;
+}
+
+.toggle span{
+  color:#ffd43b;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.msg{
+  margin-top:15px;
+  font-size:14px;
+  min-height:20px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="logo">
+PROMOFLASH
+</div>
+
+<h2 id="titulo">
+Entrar
+</h2>
+
+<div
+id="nameBox"
+class="input-box"
+style="display:none;">
+
+<input
+type="text"
+id="name"
+placeholder="Nome completo">
+
+<i class="fas fa-user"></i>
+
+</div>
+
+<div class="input-box">
+
+<input
+type="email"
+id="email"
+placeholder="E-mail">
+
+<i class="fas fa-envelope"></i>
+
+</div>
+
+<div class="input-box">
+
+<input
+type="password"
+id="password"
+placeholder="Senha">
+
+<i class="fas fa-lock"></i>
+
+</div>
+
+<button id="submitBtn">
+Entrar
+</button>
+
+<p class="toggle" id="toggleText">
+Não tem conta?
+<span id="toggleBtn">
+Cadastre-se
+</span>
+</p>
+
+<div class="msg" id="msg"></div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  onAuthStateChanged,
+  signOut
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyBKBfq3LVRX9CWchlx4Xl-1k03NxEjXhMU",
+
+  authDomain:
+  "garimpatudo-c1d44.firebaseapp.com",
+
+  projectId:
+  "garimpatudo-c1d44",
+
+  storageBucket:
+  "garimpatudo-c1d44.appspot.com",
+
+  messagingSenderId:
+  "1095541536253",
+
+  appId:
+  "1:1095541536253:web:3ca5da84d0fff9fc9c1594"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+let modoCadastro = false;
+
+const titulo =
+document.getElementById("titulo");
+
+const nameBox =
+document.getElementById("nameBox");
+
+const submitBtn =
+document.getElementById("submitBtn");
+
+const toggleBtn =
+document.getElementById("toggleBtn");
+
+const toggleText =
+document.getElementById("toggleText");
+
+const msg =
+document.getElementById("msg");
+
+toggleBtn.addEventListener("click",()=>{
+
+  modoCadastro = !modoCadastro;
+
+  msg.innerHTML = "";
+
+  if(modoCadastro){
+
+    titulo.innerText =
+    "Criar Conta";
+
+    submitBtn.innerText =
+    "Cadastrar";
+
+    nameBox.style.display =
+    "block";
+
+    toggleText.innerHTML =
+    'Já possui conta? <span id="toggleBtn">Entrar</span>';
+
+  }else{
+
+    titulo.innerText =
+    "Entrar";
+
+    submitBtn.innerText =
+    "Entrar";
+
+    nameBox.style.display =
+    "none";
+
+    toggleText.innerHTML =
+    'Não tem conta? <span id="toggleBtn">Cadastre-se</span>';
+
+  }
+
+  document
+  .querySelector("#toggleBtn")
+  .addEventListener("click",arguments.callee);
+
+});
+
+submitBtn.addEventListener("click",async()=>{
+
+  const nome =
+  document.getElementById("name").value.trim();
+
+  const email =
+  document.getElementById("email").value.trim();
+
+  const senha =
+  document.getElementById("password").value;
+
+  msg.innerHTML="";
+
+  try{
+
+    if(modoCadastro){
+
+      const cred =
+      await createUserWithEmailAndPassword(
+        auth,
+        email,
+        senha
+      );
+
+      await updateProfile(
+        cred.user,
+        {
+          displayName:nome
+        }
+      );
+
+      msg.style.color="#4ade80";
+
+      msg.innerHTML =
+      "Conta criada com sucesso!";
+
+    }else{
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        senha
+      );
+
+      msg.style.color="#4ade80";
+
+      msg.innerHTML =
+      "Login realizado!";
+
+      setTimeout(()=>{
+
+        location.href="index.html";
+
+      },1000);
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+    msg.style.color="#ff6b6b";
+
+    msg.innerHTML =
+    error.message;
+
+  }
+
+});
+
+onAuthStateChanged(auth,(user)=>{
+
+  if(user){
+
+    console.log(
+      "Logado:",
+      user.email
+    );
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
+```
+

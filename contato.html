@@ -1,0 +1,799 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contato | PromoFlash </title>
+
+<meta
+name="description"
+content="Entre em contato com o PromoFlash através do WhatsApp ou Instagram."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet"
+>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --vermelho:#e60000;
+    --vermelho2:#ff2b2b;
+    --preto:#111;
+    --cinza:#666;
+    --fundo:#f5f5f5;
+    --branco:#fff;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(230,0,0,.08),
+            transparent 35%
+        ),
+        var(--fundo);
+    color:var(--preto);
+    min-height:100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    height:72px;
+    background:#fff;
+    border-bottom:1px solid #eee;
+    display:flex;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.header{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    text-decoration:none;
+    font-size:24px;
+    font-weight:900;
+    color:var(--vermelho);
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#111;
+}
+
+.logo i{
+    font-style:normal;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+nav a{
+    color:#222;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+    transition:.2s;
+}
+
+nav a:hover{
+    color:var(--vermelho);
+}
+
+nav a.active{
+    color:var(--vermelho);
+}
+
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.page{
+    min-height:calc(100vh - 72px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:50px 20px;
+}
+
+.contact-container{
+    width:100%;
+    max-width:850px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.contact-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.contact-icon{
+    width:75px;
+    height:75px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        var(--vermelho),
+        var(--vermelho2)
+    );
+
+    color:#fff;
+
+    border-radius:22px;
+
+    font-size:31px;
+
+    box-shadow:
+        0 12px 30px rgba(230,0,0,.25);
+
+    transform:rotate(-3deg);
+}
+
+.contact-header h1{
+    font-size:36px;
+    font-weight:900;
+    letter-spacing:-1px;
+    margin-bottom:10px;
+}
+
+.contact-header h1 span{
+    color:var(--vermelho);
+}
+
+.contact-header p{
+    max-width:600px;
+    margin:auto;
+    color:#666;
+    font-size:15px;
+    line-height:1.7;
+}
+
+
+/* =========================
+   CARD PRINCIPAL
+========================= */
+
+.contact-card{
+    background:#fff;
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.08);
+
+    border:1px solid #eee;
+}
+
+
+/* =========================
+   CANAIS
+========================= */
+
+.channels-title{
+    text-align:center;
+    margin-bottom:22px;
+}
+
+.channels-title h2{
+    font-size:20px;
+    font-weight:800;
+}
+
+.channels-title p{
+    color:#888;
+    font-size:13px;
+    margin-top:5px;
+}
+
+
+.channels{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+
+.channel{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    gap:17px;
+
+    padding:20px;
+
+    border-radius:17px;
+
+    text-decoration:none;
+
+    overflow:hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.channel:hover{
+    transform:translateY(-5px);
+}
+
+
+/* WhatsApp */
+
+.channel.whatsapp{
+    background:#eafff1;
+    color:#087b38;
+    border:1px solid #c9f5da;
+}
+
+.channel.whatsapp:hover{
+    box-shadow:
+        0 12px 25px rgba(37,211,102,.18);
+}
+
+
+/* Instagram */
+
+.channel.instagram{
+    background:#fff1fa;
+    color:#c02680;
+    border:1px solid #f5d0e7;
+}
+
+.channel.instagram:hover{
+    box-shadow:
+        0 12px 25px rgba(193,53,132,.18);
+}
+
+
+.channel-icon{
+    width:55px;
+    height:55px;
+
+    min-width:55px;
+
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:25px;
+}
+
+.whatsapp .channel-icon{
+    background:#25d366;
+}
+
+.instagram .channel-icon{
+    background:
+        linear-gradient(
+            135deg,
+            #f58529,
+            #dd2a7b,
+            #8134af,
+            #515bd4
+        );
+}
+
+
+.channel-info{
+    flex:1;
+}
+
+.channel-info strong{
+    display:block;
+    font-size:16px;
+    margin-bottom:4px;
+}
+
+.channel-info span{
+    font-size:12px;
+    opacity:.75;
+}
+
+.channel-arrow{
+    font-size:15px;
+}
+
+
+/* =========================
+   INFORMAÇÃO
+========================= */
+
+.info-box{
+    margin-top:25px;
+
+    background:#fafafa;
+
+    border:1px solid #eee;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.info-box i{
+    color:var(--vermelho);
+    font-size:20px;
+    margin-top:2px;
+}
+
+.info-box strong{
+    display:block;
+    font-size:14px;
+    margin-bottom:5px;
+}
+
+.info-box p{
+    font-size:12px;
+    color:#777;
+    line-height:1.6;
+}
+
+
+/* =========================
+   VOLTAR
+========================= */
+
+.back{
+    display:flex;
+    justify-content:center;
+    margin-top:25px;
+}
+
+.back a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    color:#555;
+
+    text-decoration:none;
+
+    font-size:13px;
+    font-weight:700;
+
+    transition:.2s;
+}
+
+.back a:hover{
+    color:var(--vermelho);
+    transform:translateX(-3px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#111;
+    color:#fff;
+
+    text-align:center;
+
+    padding:28px 20px;
+}
+
+.footer-logo{
+    color:#fff;
+    font-size:18px;
+    font-weight:900;
+}
+
+.footer-logo span{
+    color:var(--vermelho);
+}
+
+footer p{
+    color:#888;
+    font-size:11px;
+    margin-top:7px;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:700px){
+
+    header{
+        height:64px;
+    }
+
+    .header{
+        justify-content:center;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .page{
+        padding:35px 15px;
+        align-items:flex-start;
+    }
+
+    .contact-header h1{
+        font-size:28px;
+    }
+
+    .contact-icon{
+        width:65px;
+        height:65px;
+        font-size:27px;
+    }
+
+    .contact-card{
+        padding:22px 17px;
+        border-radius:20px;
+    }
+
+    .channels{
+        grid-template-columns:1fr;
+    }
+
+    .channel{
+        padding:17px;
+    }
+
+}
+
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+.contact-container{
+    animation:
+        aparecer .5s ease;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="header">
+
+<a href="index.html" class="logo">
+
+PROMO<span>FLASH</span> 
+
+</a>
+
+
+<nav>
+
+<a href="index.html">
+Ofertas
+</a>
+
+<a href="categorias.html">
+Categorias
+</a>
+
+<a href="favoritos.html">
+<i class="fa-solid fa-heart"></i>
+Favoritos
+</a>
+
+<a href="contato.html" class="active">
+Contato
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     CONTEÚDO
+========================= -->
+
+<main class="page">
+
+<div class="contact-container">
+
+
+<div class="contact-header">
+
+<div class="contact-icon">
+
+<i class="fa-solid fa-headset"></i>
+
+</div>
+
+
+<h1>
+
+Fale com o
+<span>PromoFlash</span>
+
+</h1>
+
+
+<p>
+
+Tem alguma dúvida, sugestão, problema com uma oferta
+ou quer falar com a nossa equipe? Estamos aqui para ajudar.
+
+</p>
+
+</div>
+
+
+
+<div class="contact-card">
+
+
+<div class="channels-title">
+
+<h2>
+
+Escolha um canal de atendimento
+
+</h2>
+
+<p>
+
+Nossa equipe está pronta para atender você.
+
+</p>
+
+</div>
+
+
+
+<div class="channels">
+
+
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/5573998649694"
+target="_blank"
+rel="noopener noreferrer"
+class="channel whatsapp"
+>
+
+<div class="channel-icon">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</div>
+
+
+<div class="channel-info">
+
+<strong>
+WhatsApp
+</strong>
+
+<span>
+Fale diretamente com a nossa equipe
+</span>
+
+</div>
+
+
+<div class="channel-arrow">
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+</a>
+
+
+
+<!-- INSTAGRAM -->
+
+<a
+href="https://instagram.com/promoflashbr.oficial"
+target="_blank"
+rel="noopener noreferrer"
+class="channel instagram"
+>
+
+<div class="channel-icon">
+
+<i class="fa-brands fa-instagram"></i>
+
+</div>
+
+
+<div class="channel-info">
+
+<strong>
+Instagram
+</strong>
+
+<span>
+Acompanhe nossas novidades e ofertas
+</span>
+
+</div>
+
+
+<div class="channel-arrow">
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+</a>
+
+
+</div>
+
+
+
+<!-- INFORMAÇÃO -->
+
+<div class="info-box">
+
+<i class="fa-solid fa-circle-info"></i>
+
+<div>
+
+<strong>
+Sobre o PromoFlash
+</strong>
+
+<p>
+
+O PromoFlash reúne ofertas, promoções e oportunidades
+encontradas na internet. Se encontrar algum problema
+com uma oferta, entre em contato conosco.
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="back">
+
+<a href="index.html">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Voltar para o início
+
+</a>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-logo">
+
+PROMO<span>FLASH</span> 
+
+</div>
+
+<p>
+
+As melhores ofertas da internet em um só lugar.
+
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
